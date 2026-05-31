@@ -16,7 +16,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%;overflow:hidden}
-body{background:var(--bg);color:var(--txt);font-family:var(--sans);line-height:1.6;
+body{background:var(--bg);color:var(--txt);font-family:var(--sans);line-height:1.55;
   font-size:17px;-webkit-font-smoothing:antialiased}
 body::before{content:"";position:fixed;inset:0;z-index:0;
   background:
@@ -27,131 +27,122 @@ body::before{content:"";position:fixed;inset:0;z-index:0;
 body::after{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.5;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");}
 
-/* icons */
-.ic{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.6;
-  stroke-linecap:round;stroke-linejoin:round;flex:none}
-.ic.sm{width:20px;height:20px}
+.ic{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
 
-/* deck */
 .deck{position:fixed;inset:0;z-index:2;overflow:hidden}
-.slides{height:100%;transition:transform .9s cubic-bezier(.83,0,.17,1);
-  transform:translateY(calc(var(--i,0) * -100vh))}
+.slides{height:100%;transition:transform .9s cubic-bezier(.83,0,.17,1);transform:translateY(calc(var(--i,0) * -100vh))}
 .slide{height:100vh;display:flex;align-items:center;overflow:hidden;position:relative}
 .wrap{max-width:1080px;margin:0 auto;padding:0 40px;width:100%}
-@media(max-width:760px){.wrap{padding:0 24px}.slide{align-items:flex-start;overflow-y:auto;padding:70px 0}}
+@media(max-width:760px){.wrap{padding:0 22px}.slide{align-items:flex-start;overflow-y:auto;padding:64px 0}}
 
-/* progress + chrome */
 #progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:50;
-  background:linear-gradient(90deg,var(--glc),var(--amber));box-shadow:0 0 12px var(--glc);
-  transition:width .9s cubic-bezier(.83,0,.17,1)}
+  background:linear-gradient(90deg,var(--glc),var(--amber));box-shadow:0 0 12px var(--glc);transition:width .9s cubic-bezier(.83,0,.17,1)}
 .counter{position:fixed;left:40px;bottom:30px;z-index:40;font-family:var(--mono);font-size:13px;color:var(--sub)}
 .counter b{color:var(--ink)}
 .hint{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);z-index:40;font-family:var(--mono);
-  font-size:11px;letter-spacing:.22em;color:var(--sub);text-transform:uppercase;display:flex;
-  flex-direction:column;align-items:center;gap:7px;transition:.5s}
+  font-size:11px;letter-spacing:.22em;color:var(--sub);text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:7px;transition:.5s}
 .hint i{width:1px;height:30px;background:linear-gradient(var(--glc),transparent);animation:pulse 1.7s infinite}
 @keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
-nav.dots{position:fixed;right:30px;top:50%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;gap:13px}
-nav.dots button{width:10px;height:10px;border-radius:50%;border:1.5px solid rgba(57,217,138,.4);
-  background:transparent;cursor:pointer;padding:0;transition:.3s;position:relative}
-nav.dots button.active{background:var(--glc);border-color:var(--glc);box-shadow:0 0 10px var(--glc);transform:scale(1.15)}
-nav.dots button span{position:absolute;right:22px;top:50%;transform:translateY(-50%);white-space:nowrap;
-  font-size:11px;font-family:var(--mono);color:var(--sub);opacity:0;pointer-events:none;transition:.25s}
+nav.dots{position:fixed;right:28px;top:50%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;gap:11px}
+nav.dots button{width:9px;height:9px;border-radius:50%;border:1.5px solid rgba(57,217,138,.4);background:transparent;cursor:pointer;padding:0;transition:.3s;position:relative}
+nav.dots button.active{background:var(--glc);border-color:var(--glc);box-shadow:0 0 10px var(--glc);transform:scale(1.2)}
+nav.dots button span{position:absolute;right:20px;top:50%;transform:translateY(-50%);white-space:nowrap;font-size:11px;font-family:var(--mono);color:var(--sub);opacity:0;pointer-events:none;transition:.25s}
 nav.dots button:hover span{opacity:1}
-@media(max-width:820px){nav.dots,.counter{display:none}}
+@media(max-width:860px){nav.dots,.counter{display:none}}
 
-/* type */
-.eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.3em;text-transform:uppercase;
-  color:var(--glc);display:flex;align-items:center;gap:13px;margin-bottom:20px}
-.eyebrow::before{content:"";width:38px;height:1px;background:var(--glc);opacity:.6}
-h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.9rem,4.6vw,3.2rem);line-height:1.05;
-  color:var(--ink);letter-spacing:-.02em;margin-bottom:22px}
-h3{font-family:var(--serif);font-weight:600;font-size:1.35rem;color:var(--ink);margin:0 0 6px}
-p{margin-bottom:15px;max-width:62ch}
-.lead{font-size:1.18rem;color:var(--txt)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--glc);display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--glc);opacity:.6}
+h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.8rem,4.4vw,3rem);line-height:1.05;color:var(--ink);letter-spacing:-.02em;margin-bottom:18px}
+h3{font-family:var(--serif);font-weight:600;font-size:1.3rem;color:var(--ink);margin:0 0 5px}
+p{margin-bottom:13px;max-width:64ch}
+.lead{font-size:1.16rem;color:var(--txt)}
 .hl{color:var(--glc);font-weight:600}.amb{color:var(--amber);font-weight:600}
 
-/* hero */
 #mol{position:absolute;inset:0;width:100%;height:100%;z-index:0}
 .hero-inner{position:relative;z-index:2}
-.hero-tag{font-family:var(--mono);font-size:12.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--glc);margin-bottom:18px}
-.hero-title{font-family:var(--serif);font-weight:600;font-size:clamp(3.4rem,15vw,11rem);line-height:.86;
-  color:var(--ink);letter-spacing:-.04em;margin-bottom:10px}
+.hero-tag{font-family:var(--mono);font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--glc);margin-bottom:18px}
+.hero-title{font-family:var(--serif);font-weight:600;font-size:clamp(3.4rem,15vw,11rem);line-height:.86;color:var(--ink);letter-spacing:-.04em;margin-bottom:10px}
 .hero-title span{display:inline-block}
-.hero-sub{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(1.05rem,3vw,1.7rem);
-  color:var(--glc);margin-bottom:24px}
-.hero-meta{display:flex;gap:28px;flex-wrap:wrap;font-family:var(--mono);font-size:12.5px;color:var(--sub)}
+.hero-sub{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(1.05rem,3vw,1.7rem);color:var(--glc);margin-bottom:22px}
+.hero-meta{display:flex;gap:26px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--sub)}
 .hero-meta b{color:var(--amber)}
 
-/* reveal per-slide */
-.u{opacity:0;transform:translateY(26px);transition:opacity .75s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1)}
-.slide.active .u{opacity:1;transform:none}
-.slide.active .u{transition-delay:calc(var(--d,0) * 90ms)}
+.u{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.slide.active .u{opacity:1;transform:none;transition-delay:calc(var(--d,0) * 85ms)}
 
-/* layout helpers */
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center}
-@media(max-width:820px){.grid2{grid-template-columns:1fr;gap:26px}}
-.cards{display:grid;gap:16px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+@media(max-width:820px){.grid2{grid-template-columns:1fr;gap:24px}}
+.cards{display:grid;gap:15px}
 .c3{grid-template-columns:repeat(3,1fr)}.c2{grid-template-columns:repeat(2,1fr)}
 @media(max-width:820px){.c3,.c2{grid-template-columns:1fr}}
-.card{background:rgba(14,38,24,.6);border:1px solid var(--line);border-radius:16px;padding:22px;
-  transition:.35s;position:relative;overflow:hidden}
+.card{background:rgba(14,38,24,.6);border:1px solid var(--line);border-radius:15px;padding:20px;transition:.35s;position:relative;overflow:hidden}
 .card:hover{transform:translateY(-4px);border-color:rgba(57,217,138,.4)}
-.card .ic{margin-bottom:12px;color:var(--glc)}
-.card h3{font-size:1.1rem;margin-bottom:5px}
-.card p{font-size:.93rem;margin:0;color:var(--sub)}
-.card .tag{position:absolute;top:0;right:0;width:42px;height:42px;border-radius:0 16px 0 42px;background:var(--glc);opacity:.08}
+.card .ic{margin-bottom:10px;color:var(--glc)}
+.card h3{font-size:1.05rem;margin-bottom:4px}
+.card p{font-size:.91rem;margin:0;color:var(--sub)}
+.card .tag{position:absolute;top:0;right:0;width:40px;height:40px;border-radius:0 15px 0 40px;background:var(--glc);opacity:.08}
 
-.plate{background:linear-gradient(160deg,rgba(20,46,32,.85),rgba(8,22,15,.8));
-  border:1px solid var(--line);border-radius:20px;padding:18px;backdrop-filter:blur(6px);
-  box-shadow:0 30px 60px -30px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.04)}
-.plate img{width:100%;max-height:46vh;object-fit:contain;display:block;filter:drop-shadow(0 6px 18px rgba(0,0,0,.4))}
-.caption{font-family:var(--mono);font-size:11.5px;color:var(--sub);margin-top:12px;text-align:center}
+.plate{background:linear-gradient(160deg,rgba(20,46,32,.85),rgba(8,22,15,.8));border:1px solid var(--line);border-radius:20px;padding:16px;backdrop-filter:blur(6px);box-shadow:0 30px 60px -30px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.04)}
+.plate img{width:100%;max-height:44vh;object-fit:contain;display:block;filter:drop-shadow(0 6px 18px rgba(0,0,0,.4))}
+.caption{font-family:var(--mono);font-size:11px;color:var(--sub);margin-top:10px;text-align:center}
 
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 @media(max-width:820px){.stats{grid-template-columns:repeat(2,1fr)}}
-.stat{text-align:center;padding:26px 12px;border:1px solid var(--line);border-radius:16px;
-  background:linear-gradient(180deg,rgba(20,46,32,.5),transparent)}
-.stat .n{font-family:var(--serif);font-weight:600;font-size:2.6rem;color:var(--glc);line-height:1}
-.stat .l{font-size:.82rem;color:var(--sub);margin-top:8px;font-family:var(--mono)}
+.stat{text-align:center;padding:24px 12px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,rgba(20,46,32,.5),transparent)}
+.stat .n{font-family:var(--serif);font-weight:600;font-size:2.5rem;color:var(--glc);line-height:1}
+.stat .l{font-size:.8rem;color:var(--sub);margin-top:8px;font-family:var(--mono)}
 
-.formula{font-family:var(--mono);text-align:center;font-size:clamp(1rem,3vw,1.5rem);color:var(--ink);
+/* ---- chemical equations ---- */
+.eq{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 12px;
+  font-family:var(--sans);font-size:clamp(1rem,2.7vw,1.45rem);color:var(--ink);
   background:rgba(14,38,24,.55);border:1px solid var(--line);border-left:3px solid var(--glc);
-  padding:22px;border-radius:14px;margin:6px 0 14px}
-.formula small{display:block;font-family:var(--sans);font-size:.78rem;color:var(--sub);margin-top:10px}
+  padding:22px 20px;border-radius:14px;line-height:1.3;margin:6px 0}
+.eq.dense{font-size:clamp(.82rem,2.1vw,1.12rem);gap:8px 9px}
+.eq sub{font-size:.66em;vertical-align:-.25em}.eq sup{font-size:.66em;vertical-align:.5em}
+.eq .op{color:var(--sub);font-weight:300}
+.eq .m{white-space:nowrap}
+.eq .down{color:var(--branch)}
+.eq .up{color:var(--glc)}
+.lbl{display:block;font-family:var(--mono);font-size:.5em;color:var(--sub);text-align:center;margin-top:3px;white-space:nowrap}
+.arr{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;min-width:58px;color:var(--glc)}
+.arr .cond{font-family:var(--mono);font-size:.52em;line-height:1.12;text-align:center;color:var(--glc);margin-bottom:-3px}
+.arr .ln{font-size:1.6em;line-height:.7}
+.arr .und{font-family:var(--mono);font-size:.52em;color:var(--sub);margin-top:-3px;text-align:center}
+.eqcap{font-family:var(--mono);font-size:11.5px;color:var(--sub);text-align:center;margin:-2px 0 12px}
+.note{display:flex;gap:12px;align-items:flex-start;background:rgba(255,183,77,.06);border:1px solid rgba(255,183,77,.22);
+  border-radius:12px;padding:13px 16px;font-size:.92rem;color:var(--txt)}
+.note .ic{color:var(--amber);width:20px;height:20px}
 
-.quotebox{display:flex;gap:26px;align-items:flex-start;max-width:60ch}
-.quotebox .ic{width:48px;height:48px;color:var(--amber);opacity:.7}
-.quotebox .q{font-family:var(--serif);font-style:italic;font-size:clamp(1.3rem,3.4vw,2.1rem);color:var(--ink);line-height:1.3}
-.quotebox cite{display:block;font-family:var(--mono);font-style:normal;font-size:.8rem;color:var(--sub);margin-top:18px}
+.formula{font-family:var(--mono);text-align:center;font-size:clamp(1rem,3vw,1.5rem);color:var(--ink);background:rgba(14,38,24,.55);border:1px solid var(--line);border-left:3px solid var(--glc);padding:20px;border-radius:14px;margin:6px 0 12px}
+.formula small{display:block;font-family:var(--sans);font-size:.76rem;color:var(--sub);margin-top:9px}
+
+.quotebox{display:flex;gap:24px;align-items:flex-start;max-width:62ch}
+.quotebox .ic{width:46px;height:46px;color:var(--amber);opacity:.7}
+.quotebox .q{font-family:var(--serif);font-style:italic;font-size:clamp(1.25rem,3.3vw,2rem);color:var(--ink);line-height:1.3}
+.quotebox cite{display:block;font-family:var(--mono);font-style:normal;font-size:.8rem;color:var(--sub);margin-top:16px}
 
 .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px}
-table{width:100%;border-collapse:collapse;min-width:620px;font-size:.92rem}
-th,td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--line)}
-thead th{background:rgba(57,217,138,.08);font-family:var(--mono);font-size:.74rem;text-transform:uppercase;letter-spacing:.07em;color:var(--glc)}
+table{width:100%;border-collapse:collapse;min-width:620px;font-size:.9rem}
+th,td{padding:11px 16px;text-align:left;border-bottom:1px solid var(--line)}
+thead th{background:rgba(57,217,138,.08);font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--glc)}
 tbody th{font-weight:600;color:var(--ink);background:rgba(255,255,255,.015)}
 td.glc{color:var(--branch);font-weight:600}
 tr:last-child td,tr:last-child th{border-bottom:none}
 tbody tr:hover td,tbody tr:hover th{background:rgba(57,217,138,.05)}
 
-.bignum{position:absolute;top:30px;right:5%;font-family:var(--serif);font-weight:700;
-  font-size:clamp(6rem,15vw,12rem);color:rgba(57,217,138,.045);line-height:1;z-index:0;pointer-events:none}
+.bignum{position:absolute;top:26px;right:5%;font-family:var(--serif);font-weight:700;font-size:clamp(5rem,14vw,11rem);color:rgba(57,217,138,.045);line-height:1;z-index:0;pointer-events:none}
 
 .final{text-align:center}
-.final .pill{display:inline-block;font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--amber);border:1px solid rgba(255,183,77,.3);border-radius:20px;padding:5px 14px;margin-bottom:24px}
-.final .big{font-family:var(--serif);font-style:italic;font-size:clamp(1.7rem,5vw,3rem);color:var(--ink);
-  max-width:20ch;margin:0 auto 26px;line-height:1.16}
+.final .pill{display:inline-block;font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);border:1px solid rgba(255,183,77,.3);border-radius:20px;padding:5px 14px;margin-bottom:22px}
+.final .big{font-family:var(--serif);font-style:italic;font-size:clamp(1.6rem,5vw,2.9rem);color:var(--ink);max-width:20ch;margin:0 auto 24px;line-height:1.16}
 .final .src{font-family:var(--mono);font-size:.78rem;color:var(--sub);max-width:60ch;margin:0 auto}
-.ref-list{list-style:none;display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:22px}
+.ref-list{list-style:none;display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:20px}
 .ref-list li{font-family:var(--mono);font-size:.72rem;color:var(--sub);border:1px solid var(--line);border-radius:30px;padding:6px 14px}
 </style>
 </head>
 <body>
 
-<!-- ICON SPRITE -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
- <defs>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
   <symbol id="i-tag" viewBox="0 0 24 24"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r="1.5"/></symbol>
   <symbol id="i-cube" viewBox="0 0 24 24"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></symbol>
   <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
@@ -169,19 +160,19 @@ tbody tr:hover td,tbody tr:hover th{background:rgba(57,217,138,.05)}
   <symbol id="i-scope" viewBox="0 0 24 24"><path d="M6 18h8"/><path d="M3 22h18"/><path d="M14 22a7 7 0 1 0 0-14h-1"/><path d="M9 14h2"/><path d="M9 12a2 2 0 0 1-2-2V6h4v4a2 2 0 0 1-2 2Z"/><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/></symbol>
   <symbol id="i-battery" viewBox="0 0 24 24"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M22 11v2"/><path d="m9 9-2 3h3l-2 3"/></symbol>
   <symbol id="i-quote" viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></symbol>
-  <symbol id="i-cycle" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></symbol>
- </defs>
-</svg>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M9 17H7A5 5 0 0 1 7 7h2"/><path d="M15 7h2a5 5 0 1 1 0 10h-2"/><line x1="8" y1="12" x2="16" y2="12"/></symbol>
+  <symbol id="i-fire" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></symbol>
+</defs></svg>
 
 <div id="progress"></div>
 <nav class="dots" id="dots"></nav>
-<div class="counter"><b id="cnum">01</b> / <span id="ctot">14</span></div>
+<div class="counter"><b id="cnum">01</b> / <span id="ctot">19</span></div>
 <div class="hint" id="hint">scroll<i></i></div>
 
-<div class="deck">
- <div class="slides" id="slides">
+<div class="deck"><div class="slides" id="slides">
 
-  <!-- 00 HERO -->
+  <!-- HERO -->
   <section class="slide" data-label="Acasă">
     <canvas id="mol"></canvas>
     <div class="wrap hero-inner">
@@ -196,14 +187,14 @@ tbody tr:hover td,tbody tr:hover th{background:rgba(57,217,138,.05)}
     </div>
   </section>
 
-  <!-- 01 CE ESTE -->
+  <!-- CE ESTE -->
   <section class="slide" data-label="Ce este">
-    <span class="bignum">01</span>
+    <span class="bignum"></span>
     <div class="wrap">
       <div class="eyebrow u">Definiție</div>
       <h2 class="u" style="--d:1">Ce este glicogenul?</h2>
       <p class="lead u" style="--d:2">Glicogenul este o <span class="hl">polizaharidă de rezervă</span> specifică organismului uman și animal, o macromoleculă uriașă formată din mii de molecule de glucoză legate între ele.</p>
-      <p class="u" style="--d:3">Are același rol pe care îl are <span class="amb">amidonul</span> în lumea plantelor: este forma în care celula <span class="hl">depozitează energie</span> și din care extrage rapid glucoză, „combustibilul” ei, atunci când are nevoie. Din acest motiv i se mai spune și „amidon animal”.</p>
+      <p class="u" style="--d:3">Are același rol pe care îl are <span class="amb">amidonul</span> în lumea plantelor: este forma în care celula <span class="hl">depozitează energie</span> și din care extrage rapid glucoză atunci când are nevoie. De aici și numele de „amidon animal”.</p>
       <div class="cards c3 u" style="--d:4">
         <div class="card"><span class="tag"></span><svg class="ic"><use href="#i-tag"/></svg><h3>Tip</h3><p>Glucidă complexă, polizaharidă de rezervă</p></div>
         <div class="card"><span class="tag"></span><svg class="ic"><use href="#i-cube"/></svg><h3>Cărămidă</h3><p>α-D-glucoza (C₆H₁₂O₆)</p></div>
@@ -212,18 +203,17 @@ tbody tr:hover td,tbody tr:hover th{background:rgba(57,217,138,.05)}
     </div>
   </section>
 
-  <!-- 02 ALCATUIRE -->
+  <!-- ALCATUIRE -->
   <section class="slide" data-label="Alcătuire">
-    <span class="bignum">02</span>
+    <span class="bignum"></span>
     <div class="wrap">
       <div class="eyebrow u">Compoziție chimică</div>
       <h2 class="u" style="--d:1">Din ce este alcătuit</h2>
       <div class="grid2">
         <div>
           <p class="u" style="--d:2">Întreaga macromoleculă este construită din repetarea unei singure cărămizi: molecula de <span class="hl">α-D-glucoză</span>, o aldohexoză cu formula C₆H₁₂O₆.</p>
-          <p class="u" style="--d:3">La unirea a două unități se elimină o moleculă de <span class="amb">apă</span> (condensare) și se formează o punte eterică numită <span class="hl">legătură glicozidică</span>. De aceea unitatea care se repetă are formula C₆H₁₀O₅.</p>
-          <div class="formula u" style="--d:4">n C₆H₁₂O₆ ⇌ (C₆H₁₀O₅)ₙ + (n–1) H₂O
-            <small>la dreapta: sinteză prin condensare · la stânga: hidroliză, care eliberează glucoză</small></div>
+          <p class="u" style="--d:3">La unirea a două unități se elimină o moleculă de <span class="amb">apă</span>, deci unitatea care se repetă are formula C₆H₁₀O₅, iar macromolecula are formula generală:</p>
+          <div class="formula u" style="--d:4">(C₆H₁₀O₅)ₙ <small>n = gradul de policondensare, poate ajunge la zeci de mii</small></div>
         </div>
         <div class="plate u" style="--d:3">
           <img src="images/02_glucoza.png" alt="alfa-D-glucoza">
@@ -233,9 +223,9 @@ tbody tr:hover td,tbody tr:hover th{background:rgba(57,217,138,.05)}
     </div>
   </section>
 
-  <!-- 03 LEGATURI -->
+  <!-- LEGATURI -->
   <section class="slide" data-label="Legături">
-    <span class="bignum">03</span>
+    <span class="bignum"></span>
     <div class="wrap">
       <div class="eyebrow u">Structura moleculară</div>
       <h2 class="u" style="--d:1">Cum se leagă unitățile</h2>
@@ -249,15 +239,15 @@ tbody tr:hover td,tbody tr:hover th{background:rgba(57,217,138,.05)}
             <div class="card"><h3 style="color:var(--glc)">α-1,4</h3><p>Formează lanțurile liniare lungi (C1 către C4).</p></div>
             <div class="card"><h3 style="color:var(--branch)">α-1,6</h3><p>Formează ramificațiile, la fiecare <b>8 până la 12 unități</b> (C1 către C6).</p></div>
           </div>
-          <p class="u" style="--d:4" style="margin-top:20px">În centrul moleculei se află o proteină, <span class="hl">glicogenina</span>, în jurul căreia se construiește totul ca un ghem. Ramificarea creează un număr uriaș de <span class="amb">capete libere</span>, locuri unde enzimele pot elibera glucoză simultan.</p>
+          <p class="u" style="--d:4;margin-top:18px">În centrul moleculei se află o proteină, <span class="hl">glicogenina</span>, în jurul căreia se construiește totul. Ramificarea creează multe <span class="amb">capete libere</span>, unde enzimele pot elibera glucoză simultan.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 04 RAMIFICARE -->
+  <!-- RAMIFICARE -->
   <section class="slide" data-label="Ramificare">
-    <span class="bignum">04</span>
+    <span class="bignum"></span>
     <div class="wrap">
       <div class="eyebrow u">De ce contează forma</div>
       <h2 class="u" style="--d:1">Avantajul ramificării</h2>
@@ -275,40 +265,150 @@ tbody tr:hover td,tbody tr:hover th{background:rgba(57,217,138,.05)}
     </div>
   </section>
 
-  <!-- 05 PROPRIETATI -->
-  <section class="slide" data-label="Proprietăți">
-    <span class="bignum">05</span>
+  <!-- PROPRIETATI FIZICE -->
+  <section class="slide" data-label="Proprietăți fizice">
+    <span class="bignum"></span>
     <div class="wrap">
-      <div class="eyebrow u">Proprietăți</div>
-      <h2 class="u" style="--d:1">Proprietăți fizice și chimice</h2>
-      <div class="grid2">
-        <div class="u" style="--d:2">
-          <h3 style="margin-bottom:14px">Fizice</h3>
-          <div class="cards">
-            <div class="card" style="display:flex;gap:14px;align-items:flex-start"><svg class="ic"><use href="#i-atom"/></svg><p style="color:var(--txt)">Solid, pulbere albă, <b>amorfă</b> (fără formă cristalină).</p></div>
-            <div class="card" style="display:flex;gap:14px;align-items:flex-start"><svg class="ic" style="color:var(--branch)"><use href="#i-ban"/></svg><p style="color:var(--txt)"><b>Nu are gust dulce</b>, deși este construită din glucoză.</p></div>
-            <div class="card" style="display:flex;gap:14px;align-items:flex-start"><svg class="ic" style="color:var(--amber)"><use href="#i-flask"/></svg><p style="color:var(--txt)">Cu iodul dă o colorație <b>brun-roșcată</b> (amidonul, albastru).</p></div>
-          </div>
-        </div>
-        <div class="u" style="--d:3">
-          <h3 style="margin-bottom:14px">Chimice</h3>
-          <p><b class="hl">Hidroliza</b>, cu apă și enzime, descompune glicogenul până la glucoză:</p>
-          <div class="formula">(C₆H₁₀O₅)ₙ + n H₂O → n C₆H₁₂O₆</div>
-          <p><b class="amb">Oxidarea</b>, glucoza este „arsă” în celulă și eliberează energie:</p>
-          <div class="formula" style="border-left-color:var(--amber)">C₆H₁₂O₆ + 6 O₂ → 6 CO₂ + 6 H₂O + energie</div>
-        </div>
+      <div class="eyebrow u">Proprietăți fizice</div>
+      <h2 class="u" style="--d:1">Cum arată glicogenul</h2>
+      <div class="cards c3 u" style="--d:2">
+        <div class="card"><svg class="ic"><use href="#i-atom"/></svg><h3>Solid amorf</h3><p>Pulbere albă, fără formă cristalină definită.</p></div>
+        <div class="card"><svg class="ic" style="color:var(--branch)"><use href="#i-ban"/></svg><h3>Fără gust dulce</h3><p>Deși este construit integral din glucoză.</p></div>
+        <div class="card"><svg class="ic" style="color:var(--amber)"><use href="#i-flask"/></svg><h3>Test cu iod</h3><p>Colorație brun-roșcată (amidonul dă albastru-intens).</p></div>
       </div>
+      <p class="u" style="--d:3;margin-top:18px">Formează dispersii coloidale în apă caldă. În continuare urmează <span class="hl">reacțiile chimice reale</span>, scrise cu ecuații.</p>
     </div>
   </section>
 
-  <!-- 06 LOCALIZARE -->
+  <!-- ===== REACTII: 1. CONDENSARE ===== -->
+  <section class="slide" data-label="Reacție · Condensare">
+    <span class="bignum"></span>
+    <div class="wrap">
+      <div class="eyebrow u">Reacții chimice · 1 · cum se leagă</div>
+      <h2 class="u" style="--d:1">Formarea legăturii glicozidice (condensare)</h2>
+      <p class="u" style="--d:2">Două unități de glucoză se leagă prin <span class="hl">eliminarea unei molecule de apă</span> între hidroxilul <em>glicozidic</em> (de la C1) al unei unități și un hidroxil (de obicei de la C4) al celeilalte. Rămâne o punte eterică <b>C–O–C</b>, numită legătură glicozidică.</p>
+      <div class="eq u" style="--d:3">
+        <span class="m">Glc<span class="up">–OH</span><span class="lbl">C1 · hidroxil glicozidic</span></span>
+        <span class="op">+</span>
+        <span class="m"><span class="up">HO–</span>Glc<span class="lbl">C4</span></span>
+        <span class="arr"><span class="cond">condensare</span><span class="ln">→</span></span>
+        <span class="m">Glc<span class="up">–O–</span>Glc<span class="lbl">punte eterică</span></span>
+        <span class="op">+</span>
+        <span class="m amb">H<sub>2</sub>O</span>
+      </div>
+      <div class="eqcap u" style="--d:3">se formează o legătură monocarbonilică α-1,4 glicozidică</div>
+      <div class="note u" style="--d:4"><svg class="ic"><use href="#i-link"/></svg><div>La <b>punctele de ramificație</b>, hidroxilul de la C6 face condensarea, formând legătura <b style="color:var(--branch)">α-1,6</b>. Repetând condensarea de mii de ori (policondensare) se obține macromolecula de glicogen.</div></div>
+    </div>
+  </section>
+
+  <!-- ===== REACTII: 2. SINTEZA & HIDROLIZA ===== -->
+  <section class="slide" data-label="Reacție · Sinteză/Hidroliză">
+    <span class="bignum"></span>
+    <div class="wrap">
+      <div class="eyebrow u">Reacții chimice · 2</div>
+      <h2 class="u" style="--d:1">Sinteza și hidroliza glicogenului</h2>
+      <h3 class="u" style="--d:2">Sinteză (policondensare)</h3>
+      <div class="eq u" style="--d:2">
+        <span class="m">n C<sub>6</sub>H<sub>12</sub>O<sub>6</sub></span>
+        <span class="arr"><span class="cond">condensare</span><span class="ln">→</span><span class="und">−(n−1) H₂O</span></span>
+        <span class="m up">(C<sub>6</sub>H<sub>10</sub>O<sub>5</sub>)<sub>n</sub></span>
+        <span class="op">+</span>
+        <span class="m amb">(n−1) H<sub>2</sub>O</span>
+      </div>
+      <h3 class="u" style="--d:3;margin-top:14px">Hidroliză (procesul invers)</h3>
+      <div class="eq u" style="--d:3">
+        <span class="m">(C<sub>6</sub>H<sub>10</sub>O<sub>5</sub>)<sub>n</sub></span>
+        <span class="op">+</span>
+        <span class="m">n H<sub>2</sub>O</span>
+        <span class="arr"><span class="cond">H⁺ / enzime</span><span class="ln">→</span><span class="und">α-glicozidaze</span></span>
+        <span class="m up">n C<sub>6</sub>H<sub>12</sub>O<sub>6</sub></span>
+      </div>
+      <div class="note u" style="--d:4"><svg class="ic"><use href="#i-info"/></svg><div>În organism hidroliza nu se face cu acizi, ci cu <b>enzime</b> (fosforilaza, α-glicozidaze) care desprind glucoză din depozit, exact când corpul are nevoie de energie.</div></div>
+    </div>
+  </section>
+
+  <!-- ===== REACTII: 3. OXIDARE BLANDA ===== -->
+  <section class="slide" data-label="Reacție · Oxidare blândă">
+    <span class="bignum"></span>
+    <div class="wrap">
+      <div class="eyebrow u">Reacții chimice · 3 · caracterul reducător</div>
+      <h2 class="u" style="--d:1">Oxidarea blândă a glucozei</h2>
+      <p class="u" style="--d:2">Glucoza (unitatea de bază) are în forma aciclică o grupă <b>aldehidă –CHO</b>, care se oxidează ușor la grupă <b>carboxil –COOH</b> (acid gluconic). De aceea glucoza <span class="hl">reduce</span> reactivii Tollens și Fehling.</p>
+      <div class="eq dense u" style="--d:3">
+        <span class="m">CH<sub>2</sub>OH(CHOH)<sub>4</sub>CHO</span><span class="op">+</span>
+        <span class="m">2 [Ag(NH<sub>3</sub>)<sub>2</sub>]OH</span>
+        <span class="arr"><span class="cond">oxidare</span><span class="ln">→</span></span>
+        <span class="m">CH<sub>2</sub>OH(CHOH)<sub>4</sub>COOH</span><span class="op">+</span>
+        <span class="m up">2 Ag↓</span><span class="op">+</span>
+        <span class="m">4 NH<sub>3</sub></span><span class="op">+</span><span class="m">H<sub>2</sub>O</span>
+      </div>
+      <div class="eqcap u" style="--d:3">reactivul Tollens → acid gluconic + <b style="color:var(--glc)">oglindă de argint</b></div>
+      <div class="eq dense u" style="--d:4">
+        <span class="m">CH<sub>2</sub>OH(CHOH)<sub>4</sub>CHO</span><span class="op">+</span>
+        <span class="m">2 Cu(OH)<sub>2</sub></span>
+        <span class="arr"><span class="cond">oxidare</span><span class="ln">→</span></span>
+        <span class="m">CH<sub>2</sub>OH(CHOH)<sub>4</sub>COOH</span><span class="op">+</span>
+        <span class="m down">Cu<sub>2</sub>O↓</span><span class="op">+</span>
+        <span class="m">2 H<sub>2</sub>O</span>
+      </div>
+      <div class="eqcap u" style="--d:4">reactivul Fehling → <b style="color:var(--branch)">precipitat roșu-cărămiziu</b> de Cu<sub>2</sub>O</div>
+      <div class="note u" style="--d:5"><svg class="ic"><use href="#i-info"/></svg><div>Carbonul trece de la <b>+1</b> (în –CHO) la <b>+3</b> (în –COOH) = oxidare; în paralel Ag⁺ → Ag⁰ și Cu²⁺ → Cu⁺ = reducere.</div></div>
+    </div>
+  </section>
+
+  <!-- ===== REACTII: 4. OXIDARE TOTALA ===== -->
+  <section class="slide" data-label="Reacție · Respirația">
+    <span class="bignum"></span>
+    <div class="wrap">
+      <div class="eyebrow u">Reacții chimice · 4 · de unde vine energia</div>
+      <h2 class="u" style="--d:1">Oxidarea totală (respirația celulară)</h2>
+      <p class="u" style="--d:2">Glucoza eliberată din glicogen este <span class="amb">„arsă” complet</span> în celulă. Aceasta este reacția care eliberează energia folosită de organism:</p>
+      <div class="eq u" style="--d:3">
+        <span class="m">C<sub>6</sub>H<sub>12</sub>O<sub>6</sub></span><span class="op">+</span>
+        <span class="m">6 O<sub>2</sub></span>
+        <span class="arr"><span class="cond">respirație</span><span class="ln">→</span></span>
+        <span class="m">6 CO<sub>2</sub></span><span class="op">+</span>
+        <span class="m">6 H<sub>2</sub>O</span><span class="op">+</span>
+        <span class="m amb">energie</span>
+      </div>
+      <div class="eqcap u" style="--d:3">≈ 2870 kJ pentru fiecare mol de glucoză „ars”</div>
+      <div class="note u" style="--d:4"><svg class="ic"><use href="#i-fire"/></svg><div>Lanțul complet de energie: <b>glicogen → glucoză → CO₂ + H₂O + energie</b>. Reacția inversă, fotosinteza, reface glucoza în plante: 6 CO₂ + 6 H₂O + energie (lumină) → C₆H₁₂O₆ + 6 O₂.</div></div>
+    </div>
+  </section>
+
+  <!-- ===== REACTII: 5. REDUCERE & FERMENTATIE ===== -->
+  <section class="slide" data-label="Reacție · Reducere">
+    <span class="bignum"></span>
+    <div class="wrap">
+      <div class="eyebrow u">Reacții chimice · 5</div>
+      <h2 class="u" style="--d:1">Alte reacții ale glucozei</h2>
+      <h3 class="u" style="--d:2">Reducere (cu hidrogen, catalizator Ni)</h3>
+      <div class="eq dense u" style="--d:2">
+        <span class="m">CH<sub>2</sub>OH(CHOH)<sub>4</sub>CHO</span><span class="op">+</span>
+        <span class="m">H<sub>2</sub></span>
+        <span class="arr"><span class="cond">Ni</span><span class="ln">→</span></span>
+        <span class="m up">CH<sub>2</sub>OH(CHOH)<sub>4</sub>CH<sub>2</sub>OH</span>
+      </div>
+      <div class="eqcap u" style="--d:2">grupa –CHO devine –CH₂OH → rezultă <b>D-sorbitol</b> (un poliol)</div>
+      <h3 class="u" style="--d:3;margin-top:14px">Fermentație alcoolică</h3>
+      <div class="eq u" style="--d:3">
+        <span class="m">C<sub>6</sub>H<sub>12</sub>O<sub>6</sub></span>
+        <span class="arr"><span class="cond">drojdie</span><span class="ln">→</span><span class="und">enzime</span></span>
+        <span class="m up">2 C<sub>2</sub>H<sub>5</sub>OH</span><span class="op">+</span>
+        <span class="m">2 CO<sub>2</sub></span>
+      </div>
+      <div class="eqcap u" style="--d:3">stă la baza obținerii alcoolului etilic din glucide</div>
+    </div>
+  </section>
+
+  <!-- LOCALIZARE -->
   <section class="slide" data-label="Localizare">
-    <span class="bignum">06</span>
+    <span class="bignum"></span>
     <div class="wrap">
       <div class="eyebrow u">Localizare</div>
       <h2 class="u" style="--d:1">Unde se află în organism</h2>
       <div class="grid2">
-        <div class="plate u" style="--d:2;max-width:360px;margin:0 auto">
+        <div class="plate u" style="--d:2;max-width:340px;margin:0 auto">
           <img src="images/05_localizare.png" alt="localizare">
           <div class="caption">Fig. 4 · Depozitele de glicogen</div>
         </div>
@@ -323,9 +423,9 @@ tbody tr:hover td,tbody tr:hover th{background:rgba(57,217,138,.05)}
     </div>
   </section>
 
-  <!-- 07 CIFRE -->
+  <!-- CIFRE -->
   <section class="slide" data-label="Cifre">
-    <span class="bignum">07</span>
+    <span class="bignum"></span>
     <div class="wrap">
       <div class="eyebrow u">Glicogenul în cifre</div>
       <h2 class="u" style="--d:1">Câteva date care contează</h2>
@@ -335,13 +435,13 @@ tbody tr:hover td,tbody tr:hover th{background:rgba(57,217,138,.05)}
         <div class="stat"><div class="n">8&ndash;12</div><div class="l">unități / ramificație</div></div>
         <div class="stat"><div class="n">1857</div><div class="l">anul descoperirii</div></div>
       </div>
-      <p class="u" style="--d:3;text-align:center;margin:28px auto 0">Rezerva de glicogen a unui adult ajunge pentru aproximativ <span class="hl">o zi</span> de activitate normală.</p>
+      <p class="u" style="--d:3;text-align:center;margin:26px auto 0">Rezerva de glicogen a unui adult ajunge pentru aproximativ <span class="hl">o zi</span> de activitate normală.</p>
     </div>
   </section>
 
-  <!-- 08 METABOLISM -->
+  <!-- METABOLISM -->
   <section class="slide" data-label="Metabolism">
-    <span class="bignum">08</span>
+    <span class="bignum"></span>
     <div class="wrap">
       <div class="eyebrow u">Rol biologic</div>
       <h2 class="u" style="--d:1">Metabolismul: încărcare și descărcare</h2>
@@ -358,9 +458,9 @@ tbody tr:hover td,tbody tr:hover th{background:rgba(57,217,138,.05)}
     </div>
   </section>
 
-  <!-- 09 CITAT -->
-  <section class="slide" data-label="Citat">
-    <span class="bignum">09</span>
+  <!-- CITAT -->
+  <section class="slide" data-label="Citat din manual">
+    <span class="bignum"></span>
     <div class="wrap">
       <div class="eyebrow u">Din manual</div>
       <div class="quotebox">
@@ -373,9 +473,9 @@ tbody tr:hover td,tbody tr:hover th{background:rgba(57,217,138,.05)}
     </div>
   </section>
 
-  <!-- 10 COMPARATIE -->
+  <!-- COMPARATIE -->
   <section class="slide" data-label="Comparație">
-    <span class="bignum">10</span>
+    <span class="bignum"></span>
     <div class="wrap">
       <div class="eyebrow u">Cele trei polizaharide</div>
       <h2 class="u" style="--d:1">Glicogen, amidon și celuloză</h2>
@@ -397,9 +497,9 @@ tbody tr:hover td,tbody tr:hover th{background:rgba(57,217,138,.05)}
     </div>
   </section>
 
-  <!-- 11 SANATATE -->
+  <!-- SANATATE -->
   <section class="slide" data-label="Sănătate">
-    <span class="bignum">11</span>
+    <span class="bignum"></span>
     <div class="wrap">
       <div class="eyebrow u">În viața reală</div>
       <h2 class="u" style="--d:1">De ce contează pentru sănătate</h2>
@@ -411,22 +511,22 @@ tbody tr:hover td,tbody tr:hover th{background:rgba(57,217,138,.05)}
     </div>
   </section>
 
-  <!-- 12 CURIOZITATI -->
+  <!-- CURIOZITATI -->
   <section class="slide" data-label="Curiozități">
-    <span class="bignum">12</span>
+    <span class="bignum"></span>
     <div class="wrap">
       <div class="eyebrow u">Știai că</div>
       <h2 class="u" style="--d:1">Curiozități</h2>
       <div class="cards c2">
-        <div class="card u" style="--d:2" style="display:flex;gap:16px;align-items:flex-start"><svg class="ic"><use href="#i-book"/></svg><p style="color:var(--txt)">„Glicogen” vine din greacă: <i>glykys</i> („dulce”) plus <i>genēs</i> („care produce”), adică <b>producător de glucoză</b>.</p></div>
-        <div class="card u" style="--d:3" style="display:flex;gap:16px;align-items:flex-start"><svg class="ic" style="color:var(--blue)"><use href="#i-scope"/></svg><p style="color:var(--txt)">Descoperit în <b>1857</b> de fiziologul francez <b>Claude Bernard</b>.</p></div>
-        <div class="card u" style="--d:3" style="display:flex;gap:16px;align-items:flex-start"><svg class="ic"><use href="#i-droplet"/></svg><p style="color:var(--txt)">Fiecare gram de glicogen reține <b>3 până la 4 g de apă</b>, de aceea slăbești rapid la început de dietă.</p></div>
-        <div class="card u" style="--d:4" style="display:flex;gap:16px;align-items:flex-start"><svg class="ic" style="color:var(--amber)"><use href="#i-battery"/></svg><p style="color:var(--txt)">Rezerva de ~500 g dă ~2000 kcal, aproape o <b>zi întreagă</b> fără mâncare.</p></div>
+        <div class="card u" style="--d:2" style="display:flex;gap:14px;align-items:flex-start"><svg class="ic"><use href="#i-book"/></svg><p style="color:var(--txt)">„Glicogen” vine din greacă: <i>glykys</i> („dulce”) plus <i>genēs</i> („care produce”), adică <b>producător de glucoză</b>.</p></div>
+        <div class="card u" style="--d:3" style="display:flex;gap:14px;align-items:flex-start"><svg class="ic" style="color:var(--blue)"><use href="#i-scope"/></svg><p style="color:var(--txt)">Descoperit în <b>1857</b> de fiziologul francez <b>Claude Bernard</b>.</p></div>
+        <div class="card u" style="--d:3" style="display:flex;gap:14px;align-items:flex-start"><svg class="ic"><use href="#i-droplet"/></svg><p style="color:var(--txt)">Fiecare gram de glicogen reține <b>3 până la 4 g de apă</b>, de aceea slăbești rapid la început de dietă.</p></div>
+        <div class="card u" style="--d:4" style="display:flex;gap:14px;align-items:flex-start"><svg class="ic" style="color:var(--amber)"><use href="#i-battery"/></svg><p style="color:var(--txt)">Rezerva de ~500 g dă ~2000 kcal, aproape o <b>zi întreagă</b> fără mâncare.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- 13 FINAL -->
+  <!-- FINAL -->
   <section class="slide" data-label="Final">
     <div class="wrap final">
       <span class="pill u">Concluzie</span>
@@ -435,12 +535,11 @@ tbody tr:hover td,tbody tr:hover th{background:rgba(57,217,138,.05)}
       <ul class="ref-list u" style="--d:3">
         <li>Manual de Chimie, clasa a XI-a</li><li>fizichim.ro</li><li>Wikipedia</li><li>Britannica</li><li>Khan Academy</li>
       </ul>
-      <p class="src u" style="--d:4" style="margin-top:24px;opacity:.6">Proiect de chimie · clasa a XI-a · 2026</p>
+      <p class="src u" style="--d:4;margin-top:22px;opacity:.6">Proiect de chimie · clasa a XI-a · 2026</p>
     </div>
   </section>
 
- </div>
-</div>
+</div></div>
 
 <script>
 const slidesEl=document.getElementById('slides');
@@ -449,10 +548,12 @@ const total=slides.length;
 let cur=0, locked=false;
 document.getElementById('ctot').textContent=String(total).padStart(2,'0');
 
+// auto-number bignum watermarks
+let bn=0; document.querySelectorAll('.bignum').forEach(el=>{bn++;el.textContent=String(bn).padStart(2,'0')});
+
 // dots
 const dots=document.getElementById('dots');
-slides.forEach((s,i)=>{const b=document.createElement('button');
-  b.innerHTML='<span>'+s.dataset.label+'</span>';b.onclick=()=>go(i);dots.appendChild(b);});
+slides.forEach((s,i)=>{const b=document.createElement('button');b.innerHTML='<span>'+s.dataset.label+'</span>';b.onclick=()=>go(i);dots.appendChild(b);});
 const dotEls=[...dots.children];
 
 function go(i){
@@ -464,59 +565,40 @@ function go(i){
   dotEls.forEach((d,k)=>d.classList.toggle('active',k===cur));
   document.getElementById('cnum').textContent=String(cur+1).padStart(2,'0');
   document.getElementById('progress').style.width=(cur/(total-1)*100)+'%';
-  document.getElementById('hint').style.opacity = cur===0?'1':'0';
+  document.getElementById('hint').style.opacity=cur===0?'1':'0';
 }
-function step(d){ if(locked)return; locked=true; go(cur+d);
-  setTimeout(()=>locked=false,950); }
+function step(d){if(locked)return;locked=true;go(cur+d);setTimeout(()=>locked=false,950);}
 
-// wheel: smallest gesture moves one slide
-addEventListener('wheel',e=>{e.preventDefault();
-  if(locked)return; if(Math.abs(e.deltaY)<4)return;
-  step(e.deltaY>0?1:-1);
-},{passive:false});
-
-// keyboard
+addEventListener('wheel',e=>{e.preventDefault();if(locked)return;if(Math.abs(e.deltaY)<4)return;step(e.deltaY>0?1:-1);},{passive:false});
 addEventListener('keydown',e=>{
   if(['ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();step(1);}
   else if(['ArrowUp','PageUp'].includes(e.key)){e.preventDefault();step(-1);}
-  else if(e.key==='Home'){go(0);} else if(e.key==='End'){go(total-1);}
+  else if(e.key==='Home'){go(0);}else if(e.key==='End'){go(total-1);}
 });
-
-// touch swipe
 let ty=null;
 addEventListener('touchstart',e=>ty=e.touches[0].clientY,{passive:true});
 addEventListener('touchmove',e=>e.preventDefault(),{passive:false});
-addEventListener('touchend',e=>{ if(ty===null)return;
-  const dy=ty-e.changedTouches[0].clientY;
-  if(Math.abs(dy)>35)step(dy>0?1:-1); ty=null; });
-
+addEventListener('touchend',e=>{if(ty===null)return;const dy=ty-e.changedTouches[0].clientY;if(Math.abs(dy)>35)step(dy>0?1:-1);ty=null;});
 go(0);
 
-// ---- hero molecular canvas ----
+// hero canvas
 const cv=document.getElementById('mol'),cx=cv.getContext('2d');
 let W,H,nodes=[],links=[],pulses=[];
 function rs(){W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;build();}
 function build(){nodes=[];links=[];const N=Math.min(58,Math.floor(W*H/16000));
-  for(let i=0;i<N;i++)nodes.push({x:Math.random()*W,y:Math.random()*H,
-    vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,r:Math.random()*2.4+1.4,br:Math.random()<.18});
-  for(let i=0;i<nodes.length;i++)for(let j=i+1;j<nodes.length;j++){
-    const d=Math.hypot(nodes[i].x-nodes[j].x,nodes[i].y-nodes[j].y);if(d<150)links.push([i,j]);}}
+  for(let i=0;i<N;i++)nodes.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,r:Math.random()*2.4+1.4,br:Math.random()<.18});
+  for(let i=0;i<nodes.length;i++)for(let j=i+1;j<nodes.length;j++){const d=Math.hypot(nodes[i].x-nodes[j].x,nodes[i].y-nodes[j].y);if(d<150)links.push([i,j]);}}
 function spawn(){if(links.length){const l=links[Math.floor(Math.random()*links.length)];pulses.push({a:l[0],b:l[1],t:0});}}
 setInterval(spawn,650);
 function draw(){cx.clearRect(0,0,W,H);
   for(const[a,b]of links){const A=nodes[a],B=nodes[b];const d=Math.hypot(A.x-B.x,A.y-B.y);if(d>150)continue;
-    cx.strokeStyle='rgba(57,217,138,'+(0.10*(1-d/150))+')';cx.lineWidth=1;
-    cx.beginPath();cx.moveTo(A.x,A.y);cx.lineTo(B.x,B.y);cx.stroke();}
+    cx.strokeStyle='rgba(57,217,138,'+(0.10*(1-d/150))+')';cx.lineWidth=1;cx.beginPath();cx.moveTo(A.x,A.y);cx.lineTo(B.x,B.y);cx.stroke();}
   pulses=pulses.filter(p=>p.t<1);
-  for(const p of pulses){p.t+=0.02;const A=nodes[p.a],B=nodes[p.b];
-    const x=A.x+(B.x-A.x)*p.t,y=A.y+(B.y-A.y)*p.t;
-    const g=cx.createRadialGradient(x,y,0,x,y,6);
-    g.addColorStop(0,'rgba(255,183,77,.9)');g.addColorStop(1,'rgba(255,183,77,0)');
+  for(const p of pulses){p.t+=0.02;const A=nodes[p.a],B=nodes[p.b];const x=A.x+(B.x-A.x)*p.t,y=A.y+(B.y-A.y)*p.t;
+    const g=cx.createRadialGradient(x,y,0,x,y,6);g.addColorStop(0,'rgba(255,183,77,.9)');g.addColorStop(1,'rgba(255,183,77,0)');
     cx.fillStyle=g;cx.beginPath();cx.arc(x,y,6,0,7);cx.fill();}
-  for(const n of nodes){n.x+=n.vx;n.y+=n.vy;
-    if(n.x<0||n.x>W)n.vx*=-1;if(n.y<0||n.y>H)n.vy*=-1;
-    cx.fillStyle=n.br?'rgba(255,107,107,.85)':'rgba(57,217,138,.8)';
-    cx.shadowColor=n.br?'#ff6b6b':'#39d98a';cx.shadowBlur=8;
+  for(const n of nodes){n.x+=n.vx;n.y+=n.vy;if(n.x<0||n.x>W)n.vx*=-1;if(n.y<0||n.y>H)n.vy*=-1;
+    cx.fillStyle=n.br?'rgba(255,107,107,.85)':'rgba(57,217,138,.8)';cx.shadowColor=n.br?'#ff6b6b':'#39d98a';cx.shadowBlur=8;
     cx.beginPath();cx.arc(n.x,n.y,n.r,0,7);cx.fill();cx.shadowBlur=0;}
   requestAnimationFrame(draw);}
 addEventListener('resize',rs);rs();draw();
