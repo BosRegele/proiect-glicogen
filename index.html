@@ -88,6 +88,7 @@ p{margin-bottom:13px;max-width:64ch}
 .plate-light{background:#faf7f0;border:1px solid rgba(0,0,0,.08);border-radius:18px;padding:12px 16px;box-shadow:0 24px 50px -28px rgba(0,0,0,.75)}
 .plate-light img{width:100%;max-height:38vh;object-fit:contain;display:block}
 .plate-light .cap{font-family:var(--mono);font-size:11px;color:#6a7d70;text-align:center;margin-top:5px}
+.rxn{padding:8px 14px}.rxn img{max-height:25vh}
 
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 @media(max-width:820px){.stats{grid-template-columns:repeat(2,1fr)}}
@@ -232,12 +233,9 @@ tbody tr:hover td,tbody tr:hover th{background:rgba(57,217,138,.05)}
     <div class="wrap">
       <div class="eyebrow u">Structura moleculară · în detaliu</div>
       <h2 class="u" style="--d:1">Cum se leagă unitățile</h2>
-      <p class="u" style="--d:2">Unitățile de glucoză se leagă prin punți de oxigen. Sunt două tipuri de legături, desenate aici pe molecule reale:</p>
-      <div class="grid2">
-        <div class="plate-light u" style="--d:2"><img src="images/bond_a14.png" alt="legatura alfa-1,4 maltoza"><div class="cap">α-1,4 · lanțul principal (C1 → C4)</div></div>
-        <div class="plate-light u" style="--d:3"><img src="images/bond_a16.png" alt="legatura alfa-1,6 izomaltoza"><div class="cap">α-1,6 · ramificația, la fiecare 8–12 unități (C1 → C6)</div></div>
-      </div>
-      <p class="u" style="--d:4;margin-top:16px">În centrul întregii molecule se află o proteină, <span class="hl">glicogenina</span>, în jurul căreia se construiește totul. Ramificarea creează multe <span class="amb">capete libere</span>, unde enzimele pot elibera glucoză simultan.</p>
+      <p class="u" style="--d:2">Două molecule de glucoză se apropie și se unesc eliminând o moleculă de apă (condensare). Există două variante, în funcție de ce hidroxil reacționează:</p>
+      <div class="plate-light rxn u" style="--d:3"><img src="images/bond_a14.png" alt="formarea legaturii alfa-1,4 din doua glucoze"></div>
+      <div class="plate-light rxn u" style="--d:4;margin-top:12px"><img src="images/bond_a16.png" alt="formarea legaturii alfa-1,6 din doua glucoze"></div>
     </div>
   </section>
 
@@ -285,23 +283,11 @@ tbody tr:hover td,tbody tr:hover th{background:rgba(57,217,138,.05)}
     </div>
   </section>
 
-  <!-- ===== REACTII: 1. CONDENSARE ===== -->
-  <section class="slide" data-label="Reacție · Condensare">
-    <span class="bignum"></span>
-    <div class="wrap">
-      <div class="eyebrow u">Reacții chimice · 1 · cum se leagă</div>
-      <h2 class="u" style="--d:1">Formarea legăturii glicozidice</h2>
-      <p class="u" style="--d:2">Două molecule de glucoză se leagă prin <span class="hl">eliminarea unei molecule de apă</span> între hidroxilul glicozidic (de la C1) al uneia și un hidroxil (de la C4) al celeilalte. Rămâne o punte de oxigen <b>C–O–C</b>, numită legătură glicozidică:</p>
-      <div class="plate-light u" style="--d:3"><img src="images/rxn_condensare.png" alt="reactie de condensare a doua molecule de glucoza"><div class="cap">două unități de α-glucoză → legătură α-1,4 + o moleculă de apă</div></div>
-      <div class="note u" style="--d:4"><svg class="ic"><use href="#i-link"/></svg><div>La <b>ramificații</b>, legătura se face cu hidroxilul de la <b>C6</b> (legătura <b style="color:var(--branch)">α-1,6</b>). Repetând condensarea de mii de ori (policondensare) se obține glicogenul.</div></div>
-    </div>
-  </section>
-
-  <!-- ===== REACTII: 2. SINTEZA & HIDROLIZA ===== -->
+  <!-- ===== REACTII: 1. SINTEZA & HIDROLIZA ===== -->
   <section class="slide" data-label="Reacție · Sinteză/Hidroliză">
     <span class="bignum"></span>
     <div class="wrap">
-      <div class="eyebrow u">Reacții chimice · 2</div>
+      <div class="eyebrow u">Reacții chimice · 1</div>
       <h2 class="u" style="--d:1">Sinteza și hidroliza glicogenului</h2>
       <h3 class="u" style="--d:2">Sinteză (policondensare)</h3>
       <div class="eq u" style="--d:2">
@@ -327,7 +313,7 @@ tbody tr:hover td,tbody tr:hover th{background:rgba(57,217,138,.05)}
   <section class="slide" data-label="Reacție · Oxidare blândă">
     <span class="bignum"></span>
     <div class="wrap">
-      <div class="eyebrow u">Reacții chimice · 3 · caracterul reducător</div>
+      <div class="eyebrow u">Reacții chimice · 2 · caracterul reducător</div>
       <h2 class="u" style="--d:1">Oxidarea blândă a glucozei</h2>
       <p class="u" style="--d:2">În forma deschisă, glucoza are o grupă <b>aldehidă –CHO</b> care se oxidează ușor la grupă <b>carboxil –COOH</b> (acid gluconic). Uite cum se schimbă molecula la propriu:</p>
       <div class="plate-light u" style="--d:3"><img src="images/rxn_oxidare.png" alt="oxidarea glucozei la acid gluconic"><div class="cap">gruparea –CHO (galben) se transformă în –COOH (roșu)</div></div>
@@ -342,7 +328,7 @@ tbody tr:hover td,tbody tr:hover th{background:rgba(57,217,138,.05)}
   <section class="slide" data-label="Reacție · Respirația">
     <span class="bignum"></span>
     <div class="wrap">
-      <div class="eyebrow u">Reacții chimice · 4 · de unde vine energia</div>
+      <div class="eyebrow u">Reacții chimice · 3 · de unde vine energia</div>
       <h2 class="u" style="--d:1">Oxidarea totală (respirația celulară)</h2>
       <p class="u" style="--d:2">Glucoza eliberată din glicogen este <span class="amb">„arsă” complet</span> cu oxigenul pe care îl respiri. Aceasta este reacția care îți dă energie:</p>
       <div class="plate-light u" style="--d:3"><img src="images/rxn_respiratie.png" alt="respiratia celulara, oxidarea totala a glucozei"><div class="cap">≈ 2870 kJ de energie pentru fiecare mol de glucoză</div></div>
@@ -354,7 +340,7 @@ tbody tr:hover td,tbody tr:hover th{background:rgba(57,217,138,.05)}
   <section class="slide" data-label="Reacție · Reducere">
     <span class="bignum"></span>
     <div class="wrap">
-      <div class="eyebrow u">Reacții chimice · 5</div>
+      <div class="eyebrow u">Reacții chimice · 4</div>
       <h2 class="u" style="--d:1">Alte reacții ale glucozei</h2>
       <div class="grid2">
         <div class="u" style="--d:2">
