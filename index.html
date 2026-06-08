@@ -23,11 +23,6 @@ body.theme-cellulose{
   --glc:#d4e4a2; --amber:#c8aa70; --branch:#a7d2bd; --blue:#a9c8cf; --purple:#e0d8ac;
   --ink:#fff8e8; --txt:#dedbc2; --sub:#aaa48c; --line:rgba(224,216,172,.2);
 }
-body.theme-experiments{
-  --bg:#11121b; --panel:#242436;
-  --glc:#bce7e3; --amber:#efd39a; --branch:#e9adc7; --blue:#aebff0; --purple:#d7c2ef;
-  --ink:#fff9f1; --txt:#ddd8e7; --sub:#aaa4bd; --line:rgba(215,194,239,.2);
-}
 body::before{content:"";position:fixed;inset:0;z-index:0;
   background:
    radial-gradient(900px 600px at 80% -5%,rgba(57,217,138,.10),transparent 60%),
@@ -41,14 +36,7 @@ body::before{content:"";position:fixed;inset:0;z-index:0;
    radial-gradient(760px 620px at 92% 16%,rgba(200,170,112,.08),transparent 58%),
    radial-gradient(780px 620px at 22% 100%,rgba(169,200,207,.07),transparent 60%),
    linear-gradient(180deg,#15170f,#10120d 58%,#18170f);}
-.theme-bg.experiments-bg{
-  background:
-   radial-gradient(820px 520px at 12% 10%,rgba(188,231,227,.13),transparent 62%),
-   radial-gradient(740px 600px at 88% 4%,rgba(233,173,199,.11),transparent 58%),
-   radial-gradient(760px 600px at 72% 100%,rgba(239,211,154,.08),transparent 60%),
-   linear-gradient(180deg,#11121b,#0d0e17 58%,#15131c);}
 body.theme-cellulose .theme-bg.cellulose-bg{opacity:1}
-body.theme-experiments .theme-bg.experiments-bg{opacity:1}
 body::after{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.5;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");}
 
@@ -173,38 +161,6 @@ p{margin-bottom:13px;max-width:64ch}
   .slide[data-theme="cellulose"] .quotebox .q{font-size:1.12rem}
 }
 
-.lab-scene{position:relative;min-height:360px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(160deg,rgba(36,36,54,.66),rgba(14,15,25,.52));overflow:hidden;box-shadow:0 30px 70px -42px rgba(0,0,0,.8)}
-.slide[data-theme="experiments"] .hero-title{font-size:clamp(2.75rem,10vw,8.6rem)}
-.slide[data-theme="experiments"] .hero-meta{gap:22px}
-.lab-scene::before{content:"";position:absolute;inset:10%;border:1px solid rgba(188,231,227,.16);border-radius:50%;filter:blur(.2px);animation:labSpin 18s linear infinite}
-.lab-scene::after{content:"";position:absolute;left:12%;right:12%;bottom:70px;height:2px;background:linear-gradient(90deg,transparent,var(--glc),var(--branch),transparent);opacity:.42}
-.beaker{position:absolute;left:16%;bottom:70px;width:86px;height:120px;border:2px solid rgba(255,249,241,.5);border-top:0;border-radius:0 0 20px 20px;background:linear-gradient(180deg,transparent 30%,rgba(188,231,227,.22) 31%,rgba(188,231,227,.08));box-shadow:0 0 28px rgba(188,231,227,.12)}
-.tube{position:absolute;right:18%;bottom:75px;width:54px;height:170px;border:2px solid rgba(255,249,241,.5);border-radius:28px;background:linear-gradient(180deg,transparent 34%,rgba(233,173,199,.24) 35%,rgba(233,173,199,.08));transform:rotate(-12deg)}
-.drop{position:absolute;width:10px;height:10px;border-radius:50%;background:var(--amber);box-shadow:0 0 16px var(--amber);animation:floatDrop 4.5s ease-in-out infinite}
-.drop.d1{left:44%;top:32%}.drop.d2{left:52%;top:52%;animation-delay:-1.2s;background:var(--glc);box-shadow:0 0 16px var(--glc)}.drop.d3{left:63%;top:28%;animation-delay:-2.1s;background:var(--branch);box-shadow:0 0 16px var(--branch)}
-.dna-line{position:absolute;left:37%;top:19%;width:170px;height:220px;opacity:.62}
-.dna-line i{position:absolute;left:50%;top:calc(var(--p) * 1%);width:72px;height:1px;background:linear-gradient(90deg,var(--glc),var(--branch));transform:translateX(-50%) rotate(calc(var(--p) * 2deg))}
-.dna-line i::before,.dna-line i::after{content:"";position:absolute;top:-4px;width:9px;height:9px;border-radius:50%;background:var(--ink)}
-.dna-line i::before{left:-3px}.dna-line i::after{right:-3px}
-.material-tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px}
-.material-tags span{font-family:var(--mono);font-size:.78rem;border:1px solid var(--line);border-radius:999px;background:rgba(36,36,54,.5);padding:7px 11px;color:var(--txt)}
-.iod-slide .iod-demo{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.iod-sample{min-height:190px;border:1px solid rgba(215,194,239,.28);border-radius:16px;background:linear-gradient(160deg,rgba(36,36,54,.55),rgba(14,15,25,.54));position:relative;overflow:hidden;padding:18px;display:flex;flex-direction:column;justify-content:flex-end}
-.iod-sample::before{content:"";position:absolute;left:50%;top:28px;width:92px;height:118px;border:2px solid rgba(255,249,241,.48);border-radius:0 0 28px 28px;border-top:0;transform:translateX(-50%);background:linear-gradient(180deg,transparent 22%,var(--liquid,rgba(239,211,154,.2)) 23%,rgba(255,255,255,.02))}
-.iod-sample::after{content:"";position:absolute;left:50%;top:92px;width:72px;height:16px;border-radius:50%;transform:translateX(-50%);background:var(--glow,rgba(239,211,154,.2));filter:blur(12px);opacity:.9}
-.iod-sample.violet{--liquid:rgba(88,74,161,.52);--glow:rgba(143,122,255,.42);border-color:rgba(174,191,240,.5);box-shadow:inset 0 0 40px rgba(104,86,190,.18),0 24px 50px -34px rgba(143,122,255,.8)}
-.iod-sample.amber{--liquid:rgba(239,211,154,.22);--glow:rgba(239,211,154,.24)}
-.iod-sample h3{position:relative;z-index:1;font-size:1rem}
-.iod-sample p{position:relative;z-index:1;margin:0;color:var(--sub);font-size:.9rem}
-.iod-slide .formula{background:linear-gradient(120deg,rgba(70,58,132,.64),rgba(31,33,58,.72));border-color:rgba(174,191,240,.42);border-left-color:var(--blue);box-shadow:0 0 28px rgba(120,100,230,.14)}
-.iod-slide .material-tags span{background:rgba(31,33,58,.68);border-color:rgba(174,191,240,.28)}
-@media(max-width:760px){.iod-slide .iod-demo{grid-template-columns:1fr}.iod-sample{min-height:150px}.iod-sample::before{top:20px;transform:translateX(-50%) scale(.78);transform-origin:top center}}
-.steps{counter-reset:step;display:grid;gap:10px;margin-top:14px}
-.steps div{counter-increment:step;border:1px solid var(--line);border-radius:13px;background:rgba(36,36,54,.46);padding:12px 14px 12px 48px;position:relative}
-.steps div::before{content:counter(step);position:absolute;left:14px;top:12px;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:var(--glc);color:#11121b;font-family:var(--mono);font-size:.72rem;font-weight:700}
-@keyframes labSpin{to{transform:rotate(360deg)}}
-@keyframes floatDrop{0%,100%{transform:translateY(0);opacity:.45}50%{transform:translateY(-24px);opacity:1}}
-@media(max-width:760px){.slide[data-theme="experiments"] .hero-title{font-size:clamp(2.4rem,15vw,3.6rem)}.slide[data-theme="experiments"] .hero-meta{gap:12px}.lab-scene{min-height:260px}.dna-line{left:30%;transform:scale(.78)}.beaker{left:12%;transform:scale(.82);transform-origin:bottom}.tube{right:14%;transform:rotate(-12deg) scale(.82);transform-origin:bottom}}
 
 .quotebox{display:flex;gap:24px;align-items:flex-start;max-width:62ch}
 .quotebox .ic{width:46px;height:46px;color:var(--amber);opacity:.7}
@@ -276,7 +232,6 @@ tbody tr:hover td,tbody tr:hover th{background:rgba(57,217,138,.05)}
 <div class="counter"><b id="cnum">01</b> / <span id="ctot">19</span></div>
 <div class="hint" id="hint">scroll<i></i></div>
 <div class="theme-bg cellulose-bg" aria-hidden="true"></div>
-<div class="theme-bg experiments-bg" aria-hidden="true"></div>
 <canvas class="ambient-bg" id="ambientBg" aria-hidden="true"></canvas>
 
 <div class="deck"><div class="slides" id="slides">
@@ -793,138 +748,6 @@ tbody tr:hover td,tbody tr:hover th{background:rgba(57,217,138,.05)}
     </div>
   </section>
 
-  <!-- EXPERIMENTE · HERO -->
-  <section class="slide" data-theme="experiments" data-label="Experimente">
-    <div class="wrap">
-      <div class="grid2">
-        <div class="hero-inner">
-          <div class="hero-tag u" style="--d:0">Partea practică · laborator</div>
-          <h1 class="hero-title"><span class="u" style="--d:1">EXPERIMENTE</span></h1>
-          <div class="hero-sub u" style="--d:4">Polizaharide, identificare și molecule biologice</div>
-          <div class="hero-meta u" style="--d:5">
-            <div>TEST&nbsp; <b>iod + amidon</b></div>
-            <div>APLICAȚIE&nbsp; <b>bioplastic</b></div>
-            <div>FINAL&nbsp; <b>ADN din căpșuni</b></div>
-          </div>
-        </div>
-        <div class="lab-scene u" style="--d:3" aria-hidden="true">
-          <div class="beaker"></div><div class="tube"></div>
-          <div class="drop d1"></div><div class="drop d2"></div><div class="drop d3"></div>
-          <div class="dna-line">
-            <i style="--p:8"></i><i style="--p:22"></i><i style="--p:36"></i><i style="--p:50"></i><i style="--p:64"></i><i style="--p:78"></i><i style="--p:92"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIMENT 1 -->
-  <section class="slide" data-theme="experiments" data-label="ADN căpșuni">
-    <span class="bignum"></span>
-    <div class="wrap">
-      <div class="eyebrow u">Experiment spectaculos</div>
-      <h2 class="u" style="--d:1">Extragerea ADN-ului din căpșuni</h2>
-      <div class="grid2">
-        <div>
-          <p class="lead u" style="--d:2">Extragi ADN-ul din celulele căpșunii și îl observi ca o <span class="hl">masă albicioasă</span>.</p>
-          <div class="material-tags u" style="--d:3">
-            <span>2-3 căpșuni</span><span>apă</span><span>sare</span><span>detergent</span><span>alcool rece</span><span>pungă ziplock</span><span>filtru/tifon</span><span>pahar</span><span>bețișor</span>
-          </div>
-          <div class="note u" style="--d:4;margin-top:16px"><svg class="ic"><use href="#i-dna"/></svg><div>Detergentul distruge membranele celulare. Sarea ajută ADN-ul să se adune, iar alcoolul rece îl face vizibil ca fire albicioase.</div></div>
-        </div>
-        <div class="lab-scene u" style="--d:3" aria-hidden="true">
-          <div class="beaker"></div><div class="tube"></div>
-          <div class="drop d1"></div><div class="drop d2"></div><div class="drop d3"></div>
-          <div class="dna-line">
-            <i style="--p:8"></i><i style="--p:20"></i><i style="--p:32"></i><i style="--p:44"></i><i style="--p:56"></i><i style="--p:68"></i><i style="--p:80"></i><i style="--p:92"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIMENT 2 -->
-  <section class="slide iod-slide" data-theme="experiments" data-label="Test iod">
-    <span class="bignum"></span>
-    <div class="wrap">
-      <div class="eyebrow u">Experiment de identificare</div>
-      <h2 class="u" style="--d:1">Identificarea amidonului cu iod/Lugol</h2>
-      <div class="grid2">
-        <div class="iod-demo u" style="--d:2">
-          <div class="iod-sample amber">
-            <h3>Înainte</h3>
-            <p>probă alimentară + apă</p>
-          </div>
-          <div class="iod-sample violet">
-            <h3>După Lugol</h3>
-            <p>albastru-violet = amidon prezent</p>
-          </div>
-        </div>
-        <div>
-          <p class="u" style="--d:2">Amidonul este o polizaharidă formată din multe molecule de glucoză. Când adăugăm iod peste amidon, apare culoarea albastru-violet.</p>
-          <div class="material-tags u" style="--d:3">
-            <span>amidon alimentar</span><span>Lugol/iod</span><span>apă</span><span>pahare mici</span><span>cartof</span><span>pâine</span><span>orez</span><span>făină</span><span>zahăr</span><span>măr</span>
-          </div>
-          <div class="formula u" style="--d:4">iod + amidon → albastru-violet<small>culoarea indică prezența amidonului</small></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIMENT 3 -->
-  <section class="slide" data-theme="experiments" data-label="Bioplastic">
-    <span class="bignum"></span>
-    <div class="wrap">
-      <div class="eyebrow u">Experiment aplicativ</div>
-      <h2 class="u" style="--d:1">Obținerea bioplasticului din amidon</h2>
-      <div class="grid2">
-        <div>
-          <p class="lead u" style="--d:2">Arăți că amidonul poate forma o peliculă asemănătoare plasticului.</p>
-          <div class="steps u" style="--d:3">
-            <div>Amidonul se încălzește cu apă și formează un gel.</div>
-            <div>După uscare, gelul devine o peliculă solidă.</div>
-            <div>Glicerina face materialul mai flexibil.</div>
-          </div>
-        </div>
-        <div>
-          <div class="material-tags u" style="--d:2">
-            <span>amidon alimentar</span><span>apă</span><span>oțet</span><span>glicerină</span><span>vas mic</span><span>sursă de încălzire</span><span>lingură</span><span>hârtie de copt</span>
-          </div>
-          <div class="note u" style="--d:4;margin-top:16px"><svg class="ic"><use href="#i-leaf"/></svg><div>Experimentul arată o posibilă utilizare a polizaharidelor în obținerea materialelor biodegradabile.</div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- LISTA CUMPĂRĂTURI -->
-  <section class="slide" data-theme="experiments" data-label="Cumpărături">
-    <span class="bignum"></span>
-    <div class="wrap">
-      <div class="eyebrow u">Pregătire</div>
-      <h2 class="u" style="--d:1">Lista completă de cumpărături</h2>
-      <div class="material-tags u" style="--d:2">
-        <span>căpșuni</span><span>amidon alimentar</span><span>Lugol sau iod</span><span>alcool sanitar/spirt</span><span>sare</span><span>detergent de vase</span><span>oțet</span><span>glicerină</span><span>filtre de cafea/tifon</span><span>pahare transparente</span><span>pungă ziplock</span><span>hârtie de copt</span><span>cartof</span><span>pâine</span><span>orez</span><span>făină</span><span>zahăr</span><span>măr</span>
-      </div>
-      <div class="note u" style="--d:3;margin-top:20px"><svg class="ic"><use href="#i-info"/></svg><div>Mai speciale sunt doar <b>Lugol/iod</b>, <b>glicerina</b> și eventual alcoolul cât mai concentrat.</div></div>
-    </div>
-  </section>
-
-  <!-- ORDINE ȘI LEGĂTURĂ -->
-  <section class="slide" data-theme="experiments" data-label="Ordine">
-    <span class="bignum"></span>
-    <div class="wrap">
-      <div class="eyebrow u">Cum le prezinți</div>
-      <h2 class="u" style="--d:1">Ordinea cea mai bună</h2>
-      <div class="grid2">
-        <div class="steps u" style="--d:2">
-          <div><b>Testul amidonului cu iod</b><br>Începi simplu: arăți ce este amidonul și cum îl identifici.</div>
-          <div><b>Bioplasticul din amidon</b><br>Continui cu aplicația practică: amidonul devine material biodegradabil.</div>
-          <div><b>ADN-ul din căpșuni</b><br>Îl lași la final, pentru că este cel mai spectaculos vizual.</div>
-        </div>
-        <div class="quotebox u" style="--d:3"><svg class="ic"><use href="#i-quote"/></svg><div><div class="q">Amidonul îl identificăm, apoi îl folosim. La final, extragem ADN pentru a observa o altă moleculă importantă din celulele vii.</div><cite>legătura dintre experimente</cite></div></div>
-      </div>
-    </div>
-  </section>
 
 
 </div></div>
@@ -958,7 +781,6 @@ function go(i){
   cur=i;
   const nextTheme=slides[cur].dataset.theme||'glycogen';
   document.body.classList.toggle('theme-cellulose',nextTheme==='cellulose');
-  document.body.classList.toggle('theme-experiments',nextTheme==='experiments');
   if(oldTheme!==nextTheme){
     document.body.classList.add('theme-switching');
     clearTimeout(themeTimer);
@@ -1014,14 +836,7 @@ if(ambient && !reduceMotion){
     {r:167,g:210,b:189},
     {r:169,g:200,b:207}
   ];
-  const experimentsPalette=[
-    {r:188,g:231,b:227},
-    {r:239,g:211,b:154},
-    {r:233,g:173,b:199},
-    {r:174,g:191,b:240}
-  ];
   function activePalette(){
-    if(document.body.classList.contains('theme-experiments'))return experimentsPalette;
     return document.body.classList.contains('theme-cellulose')?cellulosePalette:glycogenPalette;
   }
   function rgba(c,a){return `rgba(${c.r},${c.g},${c.b},${a})`;}
