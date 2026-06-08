@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GLICOGEN · Polizaharida de rezervă a organismului animal</title>
+<title>GLICOGEN · CELULOZA · EXPERIMENTE</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,400..700&family=Hanken+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -18,14 +18,44 @@
 html,body{height:100%;overflow:hidden}
 body{background:var(--bg);color:var(--txt);font-family:var(--sans);line-height:1.55;
   font-size:17px;-webkit-font-smoothing:antialiased}
+body.theme-cellulose{
+  --bg:#15170f; --panel:#293022;
+  --glc:#d4e4a2; --amber:#c8aa70; --branch:#a7d2bd; --blue:#a9c8cf; --purple:#e0d8ac;
+  --ink:#fff8e8; --txt:#dedbc2; --sub:#aaa48c; --line:rgba(224,216,172,.2);
+}
+body.theme-experiments{
+  --bg:#11121b; --panel:#242436;
+  --glc:#bce7e3; --amber:#efd39a; --branch:#e9adc7; --blue:#aebff0; --purple:#d7c2ef;
+  --ink:#fff9f1; --txt:#ddd8e7; --sub:#aaa4bd; --line:rgba(215,194,239,.2);
+}
 body::before{content:"";position:fixed;inset:0;z-index:0;
   background:
    radial-gradient(900px 600px at 80% -5%,rgba(57,217,138,.10),transparent 60%),
    radial-gradient(800px 700px at 5% 30%,rgba(90,169,255,.07),transparent 60%),
    radial-gradient(700px 600px at 95% 95%,rgba(255,183,77,.06),transparent 60%),
    linear-gradient(180deg,#06120c,#040d08 60%,#06120c);}
+.theme-bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0;transition:opacity 1.25s cubic-bezier(.22,1,.36,1)}
+.theme-bg.cellulose-bg{
+  background:
+   radial-gradient(900px 520px at 8% -10%,rgba(212,228,162,.11),transparent 62%),
+   radial-gradient(760px 620px at 92% 16%,rgba(200,170,112,.08),transparent 58%),
+   radial-gradient(780px 620px at 22% 100%,rgba(169,200,207,.07),transparent 60%),
+   linear-gradient(180deg,#15170f,#10120d 58%,#18170f);}
+.theme-bg.experiments-bg{
+  background:
+   radial-gradient(820px 520px at 12% 10%,rgba(188,231,227,.13),transparent 62%),
+   radial-gradient(740px 600px at 88% 4%,rgba(233,173,199,.11),transparent 58%),
+   radial-gradient(760px 600px at 72% 100%,rgba(239,211,154,.08),transparent 60%),
+   linear-gradient(180deg,#11121b,#0d0e17 58%,#15131c);}
+body.theme-cellulose .theme-bg.cellulose-bg{opacity:1}
+body.theme-experiments .theme-bg.experiments-bg{opacity:1}
 body::after{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.5;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");}
+
+.ambient-bg{position:fixed;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:.78;mix-blend-mode:screen}
+body.theme-switching .ambient-bg{opacity:.42;transition:opacity .62s ease}
+@media(max-width:760px){.ambient-bg{opacity:.52}}
+@media(prefers-reduced-motion:reduce){.ambient-bg{display:none}}
 
 .ic{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
 
@@ -122,6 +152,60 @@ p{margin-bottom:13px;max-width:64ch}
 .formula{font-family:var(--mono);text-align:center;font-size:clamp(1rem,3vw,1.5rem);color:var(--ink);background:rgba(14,38,24,.55);border:1px solid var(--line);border-left:3px solid var(--glc);padding:20px;border-radius:14px;margin:6px 0 12px}
 .formula small{display:block;font-family:var(--sans);font-size:.76rem;color:var(--sub);margin-top:9px}
 
+.cellulose-hero-art{position:absolute;right:0;bottom:0;width:min(48vw,620px);height:100%;opacity:.44;z-index:1;pointer-events:none;overflow:hidden}
+.cellulose-hero-art img{width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(.92) contrast(1.05)}
+.cellulose-hero-art::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 0%,rgba(16,21,15,.72) 30%,rgba(16,21,15,.12) 100%)}
+.cellulose-hero .hero-inner{max-width:1180px}
+.cellulose-hero .hero-title{font-size:clamp(3.1rem,13vw,10rem)}
+.cellulose-flow{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:16px;font-family:var(--mono);font-size:.82rem;color:var(--ink)}
+.cellulose-flow span{border:1px solid var(--line);background:rgba(35,48,29,.58);border-radius:999px;padding:9px 14px}
+.cellulose-flow b{color:var(--glc);font-weight:600}
+.flow-arrow{color:var(--amber);opacity:.85}
+.source-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
+.source-list div{border:1px solid var(--line);background:rgba(35,48,29,.48);border-radius:12px;padding:11px 13px;color:var(--txt)}
+@media(max-width:820px){.cellulose-hero-art{width:100%;opacity:.16}.source-list{grid-template-columns:1fr}}
+@media(max-width:760px){
+  .slide[data-theme="cellulose"] .plate img{max-height:28vh}
+  .slide[data-theme="cellulose"] .plate-light img{max-height:27vh}
+  .slide[data-theme="cellulose"] .source-list{gap:8px}
+  .slide[data-theme="cellulose"] .source-list div{padding:9px 12px}
+  .slide[data-theme="cellulose"] .quotebox{gap:12px}
+  .slide[data-theme="cellulose"] .quotebox .q{font-size:1.12rem}
+}
+
+.lab-scene{position:relative;min-height:360px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(160deg,rgba(36,36,54,.66),rgba(14,15,25,.52));overflow:hidden;box-shadow:0 30px 70px -42px rgba(0,0,0,.8)}
+.slide[data-theme="experiments"] .hero-title{font-size:clamp(2.75rem,10vw,8.6rem)}
+.slide[data-theme="experiments"] .hero-meta{gap:22px}
+.lab-scene::before{content:"";position:absolute;inset:10%;border:1px solid rgba(188,231,227,.16);border-radius:50%;filter:blur(.2px);animation:labSpin 18s linear infinite}
+.lab-scene::after{content:"";position:absolute;left:12%;right:12%;bottom:70px;height:2px;background:linear-gradient(90deg,transparent,var(--glc),var(--branch),transparent);opacity:.42}
+.beaker{position:absolute;left:16%;bottom:70px;width:86px;height:120px;border:2px solid rgba(255,249,241,.5);border-top:0;border-radius:0 0 20px 20px;background:linear-gradient(180deg,transparent 30%,rgba(188,231,227,.22) 31%,rgba(188,231,227,.08));box-shadow:0 0 28px rgba(188,231,227,.12)}
+.tube{position:absolute;right:18%;bottom:75px;width:54px;height:170px;border:2px solid rgba(255,249,241,.5);border-radius:28px;background:linear-gradient(180deg,transparent 34%,rgba(233,173,199,.24) 35%,rgba(233,173,199,.08));transform:rotate(-12deg)}
+.drop{position:absolute;width:10px;height:10px;border-radius:50%;background:var(--amber);box-shadow:0 0 16px var(--amber);animation:floatDrop 4.5s ease-in-out infinite}
+.drop.d1{left:44%;top:32%}.drop.d2{left:52%;top:52%;animation-delay:-1.2s;background:var(--glc);box-shadow:0 0 16px var(--glc)}.drop.d3{left:63%;top:28%;animation-delay:-2.1s;background:var(--branch);box-shadow:0 0 16px var(--branch)}
+.dna-line{position:absolute;left:37%;top:19%;width:170px;height:220px;opacity:.62}
+.dna-line i{position:absolute;left:50%;top:calc(var(--p) * 1%);width:72px;height:1px;background:linear-gradient(90deg,var(--glc),var(--branch));transform:translateX(-50%) rotate(calc(var(--p) * 2deg))}
+.dna-line i::before,.dna-line i::after{content:"";position:absolute;top:-4px;width:9px;height:9px;border-radius:50%;background:var(--ink)}
+.dna-line i::before{left:-3px}.dna-line i::after{right:-3px}
+.material-tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px}
+.material-tags span{font-family:var(--mono);font-size:.78rem;border:1px solid var(--line);border-radius:999px;background:rgba(36,36,54,.5);padding:7px 11px;color:var(--txt)}
+.iod-slide .iod-demo{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.iod-sample{min-height:190px;border:1px solid rgba(215,194,239,.28);border-radius:16px;background:linear-gradient(160deg,rgba(36,36,54,.55),rgba(14,15,25,.54));position:relative;overflow:hidden;padding:18px;display:flex;flex-direction:column;justify-content:flex-end}
+.iod-sample::before{content:"";position:absolute;left:50%;top:28px;width:92px;height:118px;border:2px solid rgba(255,249,241,.48);border-radius:0 0 28px 28px;border-top:0;transform:translateX(-50%);background:linear-gradient(180deg,transparent 22%,var(--liquid,rgba(239,211,154,.2)) 23%,rgba(255,255,255,.02))}
+.iod-sample::after{content:"";position:absolute;left:50%;top:92px;width:72px;height:16px;border-radius:50%;transform:translateX(-50%);background:var(--glow,rgba(239,211,154,.2));filter:blur(12px);opacity:.9}
+.iod-sample.violet{--liquid:rgba(88,74,161,.52);--glow:rgba(143,122,255,.42);border-color:rgba(174,191,240,.5);box-shadow:inset 0 0 40px rgba(104,86,190,.18),0 24px 50px -34px rgba(143,122,255,.8)}
+.iod-sample.amber{--liquid:rgba(239,211,154,.22);--glow:rgba(239,211,154,.24)}
+.iod-sample h3{position:relative;z-index:1;font-size:1rem}
+.iod-sample p{position:relative;z-index:1;margin:0;color:var(--sub);font-size:.9rem}
+.iod-slide .formula{background:linear-gradient(120deg,rgba(70,58,132,.64),rgba(31,33,58,.72));border-color:rgba(174,191,240,.42);border-left-color:var(--blue);box-shadow:0 0 28px rgba(120,100,230,.14)}
+.iod-slide .material-tags span{background:rgba(31,33,58,.68);border-color:rgba(174,191,240,.28)}
+@media(max-width:760px){.iod-slide .iod-demo{grid-template-columns:1fr}.iod-sample{min-height:150px}.iod-sample::before{top:20px;transform:translateX(-50%) scale(.78);transform-origin:top center}}
+.steps{counter-reset:step;display:grid;gap:10px;margin-top:14px}
+.steps div{counter-increment:step;border:1px solid var(--line);border-radius:13px;background:rgba(36,36,54,.46);padding:12px 14px 12px 48px;position:relative}
+.steps div::before{content:counter(step);position:absolute;left:14px;top:12px;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:var(--glc);color:#11121b;font-family:var(--mono);font-size:.72rem;font-weight:700}
+@keyframes labSpin{to{transform:rotate(360deg)}}
+@keyframes floatDrop{0%,100%{transform:translateY(0);opacity:.45}50%{transform:translateY(-24px);opacity:1}}
+@media(max-width:760px){.slide[data-theme="experiments"] .hero-title{font-size:clamp(2.4rem,15vw,3.6rem)}.slide[data-theme="experiments"] .hero-meta{gap:12px}.lab-scene{min-height:260px}.dna-line{left:30%;transform:scale(.78)}.beaker{left:12%;transform:scale(.82);transform-origin:bottom}.tube{right:14%;transform:rotate(-12deg) scale(.82);transform-origin:bottom}}
+
 .quotebox{display:flex;gap:24px;align-items:flex-start;max-width:62ch}
 .quotebox .ic{width:46px;height:46px;color:var(--amber);opacity:.7}
 .quotebox .q{font-family:var(--serif);font-style:italic;font-size:clamp(1.25rem,3.3vw,2rem);color:var(--ink);line-height:1.3}
@@ -170,6 +254,7 @@ tbody tr:hover td,tbody tr:hover th{background:rgba(57,217,138,.05)}
   <symbol id="i-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
   <symbol id="i-fit" viewBox="0 0 24 24"><path d="M8 3v3a2 2 0 0 1-2 2H3"/><path d="M21 8h-3a2 2 0 0 1-2-2V3"/><path d="M3 16h3a2 2 0 0 1 2 2v3"/><path d="M16 21v-3a2 2 0 0 1 2-2h3"/></symbol>
   <symbol id="i-droplet" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 4 13c0-5 7-9 16-9 0 9-4 16-9 16Z"/><path d="M4 20c4-7 9-10 16-16"/></symbol>
   <symbol id="i-liver" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.5 12h4l1-2 2 4 2-6 1.5 4h5"/></symbol>
   <symbol id="i-muscle" viewBox="0 0 24 24"><path d="M14.4 14.4 9.6 9.6"/><path d="M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767 1.768a2 2 0 1 1-2.829-2.829l6.364-6.364a2 2 0 1 1 2.829 2.829l-1.768 1.767a2 2 0 1 1 2.828 2.829z"/><path d="m21.5 21.5-1.4-1.4"/><path d="M3.9 3.9 2.5 2.5"/><path d="M6.404 12.768a2 2 0 1 1-2.829-2.829l1.768-1.767a2 2 0 1 1-2.828-2.829l2.828-2.828a2 2 0 1 1 2.829 2.828l1.767-1.768a2 2 0 1 1 2.829 2.829z"/></symbol>
   <symbol id="i-flask" viewBox="0 0 24 24"><path d="M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2"/><path d="M6.453 15h11.094"/><path d="M8.5 2h7"/></symbol>
@@ -190,6 +275,9 @@ tbody tr:hover td,tbody tr:hover th{background:rgba(57,217,138,.05)}
 <nav class="dots" id="dots"></nav>
 <div class="counter"><b id="cnum">01</b> / <span id="ctot">19</span></div>
 <div class="hint" id="hint">scroll<i></i></div>
+<div class="theme-bg cellulose-bg" aria-hidden="true"></div>
+<div class="theme-bg experiments-bg" aria-hidden="true"></div>
+<canvas class="ambient-bg" id="ambientBg" aria-hidden="true"></canvas>
 
 <div class="deck"><div class="slides" id="slides">
 
@@ -238,10 +326,41 @@ tbody tr:hover td,tbody tr:hover th{background:rgba(57,217,138,.05)}
           <div class="formula u" style="--d:4">(C₆H₁₀O₅)ₙ <small>n = gradul de policondensare, poate ajunge la zeci de mii</small></div>
         </div>
         <div class="plate-light u" style="--d:3">
-          <img src="images/glc_unit.png" alt="structura alfa-D-glucopiranozei">
+          <img src="images/glc_unit.png?v=2" alt="structura alfa-D-glucopiranozei">
           <div class="cap">Fig. 1 · α-D-glucopiranoza, unitatea care se repetă</div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- FORMELE GLUCOZEI -->
+  <section class="slide" data-label="Formele glucozei">
+    <span class="bignum"></span>
+    <div class="wrap">
+      <div class="eyebrow u">Monomerul · în detaliu</div>
+      <h2 class="u" style="--d:1">Formele glucozei în natură</h2>
+      <p class="u" style="--d:2">Glucoza nu există într-o singură formă. În manualul de clasa a XI-a apar trei reprezentări — <span class="amb">formula perspectivă</span> arată cum se ciclizează în funcție de ce carbon atacă gruparea aldehidică:</p>
+      <div class="cards c3 u" style="--d:3;align-items:start">
+        <div>
+          <div class="plate-light" style="padding:8px 10px">
+            <img src="images/glc_catena.png" alt="forma catenara Fischer a glucozei" style="max-height:29vh;width:100%">
+          </div>
+          <div class="caption" style="text-align:center;margin-top:6px">Forma catenară · lanț deschis (Fischer)</div>
+        </div>
+        <div>
+          <div class="plate-light" style="padding:8px 10px">
+            <img src="images/glc_furanoza.png" alt="forma furanozica a glucozei" style="max-height:29vh;width:100%">
+          </div>
+          <div class="caption" style="text-align:center;margin-top:6px">Forma furanozică · inel 1–4 · 5 atomi</div>
+        </div>
+        <div>
+          <div class="plate-light" style="padding:8px 10px;border-color:rgba(57,217,138,.35)">
+            <img src="images/glc_piranoza.png" alt="forma piranozica a glucozei" style="max-height:29vh;width:100%">
+          </div>
+          <div class="caption" style="text-align:center;margin-top:6px;color:var(--glc)">Forma piranozică · inel 1–5 · 6 atomi ★</div>
+        </div>
+      </div>
+      <div class="note u" style="--d:4"><svg class="ic"><use href="#i-info"/></svg><div>În glicogen, monomerul este <b>α-D-glucopiranoza</b> (forma piranozică, inel 1–5, cu configurație α la C1). Gruparea <b>–CH₂OH</b> de la C6 rămâne liberă și participă la ramificațiile α-1,6.</div></div>
     </div>
   </section>
 
@@ -269,7 +388,7 @@ tbody tr:hover td,tbody tr:hover th{background:rgba(57,217,138,.05)}
         <div class="card"><svg class="ic" style="color:var(--blue)"><use href="#i-droplet"/></svg><h3>Solubilă</h3><p>Se dispersează în apă fără a perturba presiunea osmotică a celulei.</p></div>
       </div>
       <div class="plate-light u" style="--d:3;margin-top:18px">
-        <img src="images/ramificatie.png" alt="fragment ramificat de glicogen">
+        <img src="images/ramificatie.png?v=5" alt="fragment ramificat de glicogen">
         <div class="cap">Fig. 3 · Fragment real: un lanț α-1,4 din care pleacă o ramificație α-1,6</div>
       </div>
     </div>
@@ -339,7 +458,7 @@ tbody tr:hover td,tbody tr:hover th{background:rgba(57,217,138,.05)}
       <div class="eyebrow u">Reacții chimice · 2 · caracterul reducător</div>
       <h2 class="u" style="--d:1">Oxidarea blândă a glucozei</h2>
       <p class="u" style="--d:2">În forma deschisă, glucoza are o grupă <b>aldehidă –CHO</b> care se oxidează ușor la grupă <b>carboxil –COOH</b> (acid gluconic). Uite cum se schimbă molecula la propriu:</p>
-      <div class="plate-light u" style="--d:3"><img src="images/rxn_oxidare.png" alt="oxidarea glucozei la acid gluconic"><div class="cap">gruparea –CHO (galben) se transformă în –COOH (roșu)</div></div>
+      <div class="plate-light u" style="--d:3"><img src="images/rxn_oxidare.png?v=3" alt="oxidarea glucozei la acid gluconic"><div class="cap">gruparea –CHO (galben) se transformă în –COOH (roșu)</div></div>
       <div class="cards c2 u" style="--d:4;margin-top:14px">
         <div class="card"><svg class="ic"><use href="#i-flask"/></svg><h3 style="font-size:1rem">Cu reactivul Tollens</h3><p>Se depune <b style="color:var(--glc)">argint metalic</b> → oglindă de argint.</p></div>
         <div class="card"><svg class="ic" style="color:var(--branch)"><use href="#i-flask"/></svg><h3 style="font-size:1rem">Cu reactivul Fehling</h3><p>Apare un precipitat <b style="color:var(--branch)">roșu-cărămiziu</b> de Cu₂O.</p></div>
@@ -354,7 +473,7 @@ tbody tr:hover td,tbody tr:hover th{background:rgba(57,217,138,.05)}
       <div class="eyebrow u">Reacții chimice · 3 · de unde vine energia</div>
       <h2 class="u" style="--d:1">Oxidarea totală (respirația celulară)</h2>
       <p class="u" style="--d:2">Glucoza din glicogen este <span class="amb">arsă complet</span> cu oxigenul respirat — fiecare atom se oxidează (≈ 2870 kJ pentru fiecare mol):</p>
-      <div class="plate-light detail u" style="--d:3"><img src="images/respiratie_detaliu.png" alt="arderea completa a glucozei, bilantul atomilor"></div>
+      <div class="plate-light detail u" style="--d:3"><img src="images/respiratie_detaliu.png?v=2" alt="arderea completa a glucozei, bilantul atomilor"></div>
       <div class="note u" style="--d:4"><svg class="ic"><use href="#i-fire"/></svg><div>Oxigenul (O₂) intră când <b>inspiri</b>, iar dioxidul de carbon (CO₂) rezultat îl <b>expiri</b>. Lanțul: glicogen → glucoză → CO₂ + H₂O + energie.</div></div>
     </div>
   </section>
@@ -368,11 +487,11 @@ tbody tr:hover td,tbody tr:hover th{background:rgba(57,217,138,.05)}
       <div class="grid2">
         <div class="u" style="--d:2">
           <h3 style="margin-bottom:10px">Reducere (cu H₂, catalizator Ni)</h3>
-          <div class="plate-light"><img src="images/rxn_reducere.png" alt="reducerea glucozei la sorbitol"><div class="cap">gruparea –CHO devine –CH₂OH → sorbitol</div></div>
+          <div class="plate-light"><img src="images/rxn_reducere.png?v=3" alt="reducerea glucozei la sorbitol"><div class="cap">gruparea –CHO devine –CH₂OH → sorbitol</div></div>
         </div>
         <div class="u" style="--d:3">
           <h3 style="margin-bottom:10px">Fermentație alcoolică</h3>
-          <div class="plate-light"><img src="images/rxn_fermentatie.png" alt="fermentatia alcoolica a glucozei"><div class="cap">glucoza → etanol + dioxid de carbon</div></div>
+          <div class="plate-light"><img src="images/rxn_fermentatie.png?v=2" alt="fermentatia alcoolica a glucozei"><div class="cap">glucoza → etanol + dioxid de carbon</div></div>
         </div>
       </div>
     </div>
@@ -504,6 +623,310 @@ tbody tr:hover td,tbody tr:hover th{background:rgba(57,217,138,.05)}
     </div>
   </section>
 
+  <!-- CELULOZA · HERO -->
+  <section class="slide cellulose-hero" data-theme="cellulose" data-label="Celuloza">
+    <div class="cellulose-hero-art"><img src="images/cellulose_paper_leaf.png" alt="hârtie, frunze și fibre vegetale"></div>
+    <div class="wrap hero-inner">
+      <div class="hero-tag u" style="--d:0">Proiect chimie · Clasa a XI-a</div>
+      <h1 class="hero-title"><span class="u" style="--d:1">CELULOZA</span></h1>
+      <div class="hero-sub u" style="--d:4">Polizaharida care dă rezistență plantelor</div>
+      <div class="hero-meta u" style="--d:5">
+        <div>FORMULĂ&nbsp; <b>(C₆H₁₀O₅)ₙ</b></div>
+        <div>MONOMER&nbsp; <b>β-D-glucoză</b></div>
+        <div>ROL&nbsp; <b>structural</b></div>
+      </div>
+      <div class="cellulose-flow u" style="--d:6;justify-content:flex-start">
+        <span><b>glucoză</b></span><i class="flow-arrow">→</i><span>lanțuri lungi</span><i class="flow-arrow">→</i><span>fibre rezistente</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CELULOZA · CE ESTE -->
+  <section class="slide" data-theme="cellulose" data-label="Ce este celuloza">
+    <span class="bignum"></span>
+    <div class="wrap">
+      <div class="eyebrow u">Definiție</div>
+      <h2 class="u" style="--d:1">Ce este celuloza?</h2>
+      <div class="grid2">
+        <div>
+          <p class="lead u" style="--d:2">Celuloza este o <span class="hl">polizaharidă naturală</span>, formată dintr-un număr foarte mare de unități de glucoză.</p>
+          <p class="u" style="--d:3">Ea este un <span class="amb">polimer natural cu rol structural</span>, fiind una dintre cele mai importante substanțe organice din lumea plantelor.</p>
+          <div class="formula u" style="--d:4">(C₆H₁₀O₅)ₙ<small>litera n arată că molecula are multe unități repetitive de glucoză</small></div>
+          <div class="cellulose-flow u" style="--d:5">
+            <span>molecule de <b>glucoză</b></span><i class="flow-arrow">→</i><span>lanțuri lungi</span><i class="flow-arrow">→</i><span>fibre rezistente</span>
+          </div>
+        </div>
+        <div class="plate-light u" style="--d:4">
+          <img src="images/cellulose_chain.png" alt="structura lanțului de celuloză">
+          <div class="cap">Lanț repetitiv de unități de glucoză în celuloză</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CELULOZA · STRUCTURA -->
+  <section class="slide" data-theme="cellulose" data-label="Structură chimică">
+    <span class="bignum"></span>
+    <div class="wrap">
+      <div class="eyebrow u">Structură chimică</div>
+      <h2 class="u" style="--d:1">Lanțuri liniare unite prin hidrogen</h2>
+      <div class="grid2">
+        <div class="plate-light u" style="--d:2">
+          <img src="images/cellulose_chain.png" alt="legături beta 1 4 glicozidice în celuloză">
+          <div class="cap">Unități de β-D-glucoză legate prin legături β(1→4)-glicozidice</div>
+        </div>
+        <div>
+          <p class="u" style="--d:2">Celuloza este alcătuită din unități de <span class="hl">β-D-glucoză</span>, unite prin legături <span class="amb">β(1→4)-glicozidice</span>.</p>
+          <p class="u" style="--d:3">Lanțurile sunt aproape liniare, iar grupele <b>–OH</b> formează legături de hidrogen între lanțuri.</p>
+          <div class="note u" style="--d:4"><svg class="ic"><use href="#i-info"/></svg><div><b>De reținut:</b> celuloza și amidonul sunt ambele formate din glucoză, dar au structuri diferite. De aceea amidonul poate fi digerat de om, iar celuloza nu.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CELULOZA · ROL ÎN PLANTE -->
+  <section class="slide" data-theme="cellulose" data-label="Rol în plante">
+    <span class="bignum"></span>
+    <div class="wrap">
+      <div class="eyebrow u">Rol biologic</div>
+      <h2 class="u" style="--d:1">Rolul celulozei în plante</h2>
+      <div class="grid2">
+        <div>
+          <p class="u" style="--d:2">Celuloza este componenta principală a <span class="hl">peretelui celular vegetal</span>.</p>
+          <p class="u" style="--d:3">Ea formează microfibrile care funcționează ca niște cabluri microscopice și oferă celulelor vegetale rezistență, susținere, formă și protecție împotriva presiunii interne.</p>
+          <div class="cellulose-flow u" style="--d:4">
+            <span>glucoză</span><i class="flow-arrow">→</i><span>lanț de celuloză</span><i class="flow-arrow">→</i><span>microfibrile</span><i class="flow-arrow">→</i><span>perete celular</span>
+          </div>
+          <div class="note u" style="--d:5;margin-top:16px"><svg class="ic"><use href="#i-fit"/></svg><div>Celuloza este pentru plantă ca armătura de fier pentru beton.</div></div>
+        </div>
+        <div class="plate-light detail u" style="--d:3">
+          <img src="images/cellulose_role.png" alt="rolul celulozei în plante">
+          <div class="cap">De la glucoză la microfibrile și perete celular vegetal</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CELULOZA · UNDE SE GĂSEȘTE -->
+  <section class="slide" data-theme="cellulose" data-label="Surse">
+    <span class="bignum"></span>
+    <div class="wrap">
+      <div class="eyebrow u">Unde se găsește</div>
+      <h2 class="u" style="--d:1">Celuloza apare în aproape toate plantele</h2>
+      <div class="grid2">
+        <div class="plate u" style="--d:2">
+          <img src="images/cellulose_paper_leaf.png" alt="hârtie, lemn, frunze și bumbac">
+          <div class="caption">Surse vizibile: lemn, frunze, hârtie, bumbac</div>
+        </div>
+        <div>
+          <p class="u" style="--d:2">Celuloza se găsește mai ales în pereții celulari ai plantelor.</p>
+          <div class="source-list u" style="--d:3">
+            <div>bumbac</div><div>lemn</div><div>hârtie și carton</div><div>frunze și tulpini</div><div>paie</div><div>in și cânepă</div>
+          </div>
+          <p class="u" style="--d:4;margin-top:16px">Bumbacul are un conținut foarte mare de celuloză, iar lemnul conține celuloză împreună cu lignină și hemiceluloză.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CELULOZA · PROPRIETĂȚI -->
+  <section class="slide" data-theme="cellulose" data-label="Proprietăți">
+    <span class="bignum"></span>
+    <div class="wrap">
+      <div class="eyebrow u">Proprietăți importante</div>
+      <h2 class="u" style="--d:1">Rezistență prin structură</h2>
+      <p class="lead u" style="--d:2">Celuloza are proprietăți speciale datorită structurii sale chimice și a legăturilor de hidrogen dintre lanțuri.</p>
+      <div class="cards c3">
+        <div class="card u" style="--d:3"><svg class="ic"><use href="#i-cube"/></svg><h3>Solidă</h3><p>În stare pură este albă și fără miros.</p></div>
+        <div class="card u" style="--d:4"><svg class="ic" style="color:var(--blue)"><use href="#i-droplet"/></svg><h3>Insolubilă</h3><p>Nu se dizolvă în apă, deci pereții celulari rămân stabili.</p></div>
+        <div class="card u" style="--d:5"><svg class="ic" style="color:var(--amber)"><use href="#i-fit"/></svg><h3>Rezistentă</h3><p>Are rezistență mecanică ridicată.</p></div>
+        <div class="card u" style="--d:6"><svg class="ic"><use href="#i-fire"/></svg><h3>Combustibilă</h3><p>Poate arde, ca hârtia sau lemnul.</p></div>
+        <div class="card u" style="--d:7"><svg class="ic" style="color:var(--branch)"><use href="#i-leaf"/></svg><h3>Biodegradabilă</h3><p>Este o resursă naturală regenerabilă.</p></div>
+        <div class="card u" style="--d:8"><svg class="ic" style="color:var(--purple)"><use href="#i-ban"/></svg><h3>Nedigerabilă</h3><p>Omul nu poate rupe eficient legăturile β-1,4.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CELULOZA · ORGANISM -->
+  <section class="slide" data-theme="cellulose" data-label="Organismul uman">
+    <span class="bignum"></span>
+    <div class="wrap">
+      <div class="eyebrow u">Celuloza și organismul uman</div>
+      <h2 class="u" style="--d:1">Nu o digerăm, dar ne ajută</h2>
+      <div class="grid2">
+        <div>
+          <p class="u" style="--d:2">Omul nu poate digera celuloza deoarece nu produce enzima numită <span class="hl">celulază</span>.</p>
+          <p class="u" style="--d:3">Această enzimă ar fi necesară pentru ruperea legăturilor β-1,4-glicozidice dintre unitățile de glucoză.</p>
+          <div class="cards u" style="--d:4">
+            <div class="card"><svg class="ic" style="color:var(--blue)"><use href="#i-droplet"/></svg><h3>Absoarbe apă</h3><p>Funcționează ca fibră insolubilă.</p></div>
+            <div class="card"><svg class="ic" style="color:var(--amber)"><use href="#i-run"/></svg><h3>Ajută tranzitul</h3><p>Susține digestia normală.</p></div>
+          </div>
+        </div>
+        <div class="plate-light u" style="--d:3">
+          <img src="images/cellulose_wall_diagram.png" alt="celuloză în peretele celular vegetal și microfibrile">
+          <div class="cap">Microfibrilele sunt utile plantelor; în alimentație, celuloza devine fibră insolubilă</div>
+        </div>
+      </div>
+      <div class="note u" style="--d:5"><svg class="ic"><use href="#i-info"/></svg><div>Animalele erbivore, cum sunt vacile, pot valorifica celuloza cu ajutorul microorganismelor din sistemul digestiv.</div></div>
+    </div>
+  </section>
+
+  <!-- CELULOZA · UTILIZĂRI -->
+  <section class="slide" data-theme="cellulose" data-label="Utilizări">
+    <span class="bignum"></span>
+    <div class="wrap">
+      <div class="eyebrow u">Utilizări și concluzie</div>
+      <h2 class="u" style="--d:1">De la plante la materiale ecologice</h2>
+      <div class="grid2">
+        <div class="plate u" style="--d:2">
+          <img src="images/cellulose_materials.png" alt="materiale izolatoare celulozice">
+          <div class="caption">Fibre celulozice folosite în materiale moderne</div>
+        </div>
+        <div>
+          <div class="source-list u" style="--d:2">
+            <div>hârtie și carton</div><div>textile din bumbac sau in</div><div>produse farmaceutice</div><div>filtre</div><div>ambalaje biodegradabile</div><div>nanoceluloză</div>
+          </div>
+          <p class="u" style="--d:3;margin-top:16px">Celuloza este o polizaharidă esențială pentru plante și foarte utilă pentru oameni: oferă rezistență pereților celulari, se găsește în materiale folosite zilnic și reprezintă o resursă naturală regenerabilă.</p>
+          <div class="quotebox u" style="--d:4;margin-top:14px"><svg class="ic"><use href="#i-quote"/></svg><div><div class="q">Molecule simple de glucoză pot construi structuri rezistente: plante, hârtie, textile și materiale ecologice.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIMENTE · HERO -->
+  <section class="slide" data-theme="experiments" data-label="Experimente">
+    <div class="wrap">
+      <div class="grid2">
+        <div class="hero-inner">
+          <div class="hero-tag u" style="--d:0">Partea practică · laborator</div>
+          <h1 class="hero-title"><span class="u" style="--d:1">EXPERIMENTE</span></h1>
+          <div class="hero-sub u" style="--d:4">Polizaharide, identificare și molecule biologice</div>
+          <div class="hero-meta u" style="--d:5">
+            <div>TEST&nbsp; <b>iod + amidon</b></div>
+            <div>APLICAȚIE&nbsp; <b>bioplastic</b></div>
+            <div>FINAL&nbsp; <b>ADN din căpșuni</b></div>
+          </div>
+        </div>
+        <div class="lab-scene u" style="--d:3" aria-hidden="true">
+          <div class="beaker"></div><div class="tube"></div>
+          <div class="drop d1"></div><div class="drop d2"></div><div class="drop d3"></div>
+          <div class="dna-line">
+            <i style="--p:8"></i><i style="--p:22"></i><i style="--p:36"></i><i style="--p:50"></i><i style="--p:64"></i><i style="--p:78"></i><i style="--p:92"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIMENT 1 -->
+  <section class="slide" data-theme="experiments" data-label="ADN căpșuni">
+    <span class="bignum"></span>
+    <div class="wrap">
+      <div class="eyebrow u">Experiment spectaculos</div>
+      <h2 class="u" style="--d:1">Extragerea ADN-ului din căpșuni</h2>
+      <div class="grid2">
+        <div>
+          <p class="lead u" style="--d:2">Extragi ADN-ul din celulele căpșunii și îl observi ca o <span class="hl">masă albicioasă</span>.</p>
+          <div class="material-tags u" style="--d:3">
+            <span>2-3 căpșuni</span><span>apă</span><span>sare</span><span>detergent</span><span>alcool rece</span><span>pungă ziplock</span><span>filtru/tifon</span><span>pahar</span><span>bețișor</span>
+          </div>
+          <div class="note u" style="--d:4;margin-top:16px"><svg class="ic"><use href="#i-dna"/></svg><div>Detergentul distruge membranele celulare. Sarea ajută ADN-ul să se adune, iar alcoolul rece îl face vizibil ca fire albicioase.</div></div>
+        </div>
+        <div class="lab-scene u" style="--d:3" aria-hidden="true">
+          <div class="beaker"></div><div class="tube"></div>
+          <div class="drop d1"></div><div class="drop d2"></div><div class="drop d3"></div>
+          <div class="dna-line">
+            <i style="--p:8"></i><i style="--p:20"></i><i style="--p:32"></i><i style="--p:44"></i><i style="--p:56"></i><i style="--p:68"></i><i style="--p:80"></i><i style="--p:92"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIMENT 2 -->
+  <section class="slide iod-slide" data-theme="experiments" data-label="Test iod">
+    <span class="bignum"></span>
+    <div class="wrap">
+      <div class="eyebrow u">Experiment de identificare</div>
+      <h2 class="u" style="--d:1">Identificarea amidonului cu iod/Lugol</h2>
+      <div class="grid2">
+        <div class="iod-demo u" style="--d:2">
+          <div class="iod-sample amber">
+            <h3>Înainte</h3>
+            <p>probă alimentară + apă</p>
+          </div>
+          <div class="iod-sample violet">
+            <h3>După Lugol</h3>
+            <p>albastru-violet = amidon prezent</p>
+          </div>
+        </div>
+        <div>
+          <p class="u" style="--d:2">Amidonul este o polizaharidă formată din multe molecule de glucoză. Când adăugăm iod peste amidon, apare culoarea albastru-violet.</p>
+          <div class="material-tags u" style="--d:3">
+            <span>amidon alimentar</span><span>Lugol/iod</span><span>apă</span><span>pahare mici</span><span>cartof</span><span>pâine</span><span>orez</span><span>făină</span><span>zahăr</span><span>măr</span>
+          </div>
+          <div class="formula u" style="--d:4">iod + amidon → albastru-violet<small>culoarea indică prezența amidonului</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIMENT 3 -->
+  <section class="slide" data-theme="experiments" data-label="Bioplastic">
+    <span class="bignum"></span>
+    <div class="wrap">
+      <div class="eyebrow u">Experiment aplicativ</div>
+      <h2 class="u" style="--d:1">Obținerea bioplasticului din amidon</h2>
+      <div class="grid2">
+        <div>
+          <p class="lead u" style="--d:2">Arăți că amidonul poate forma o peliculă asemănătoare plasticului.</p>
+          <div class="steps u" style="--d:3">
+            <div>Amidonul se încălzește cu apă și formează un gel.</div>
+            <div>După uscare, gelul devine o peliculă solidă.</div>
+            <div>Glicerina face materialul mai flexibil.</div>
+          </div>
+        </div>
+        <div>
+          <div class="material-tags u" style="--d:2">
+            <span>amidon alimentar</span><span>apă</span><span>oțet</span><span>glicerină</span><span>vas mic</span><span>sursă de încălzire</span><span>lingură</span><span>hârtie de copt</span>
+          </div>
+          <div class="note u" style="--d:4;margin-top:16px"><svg class="ic"><use href="#i-leaf"/></svg><div>Experimentul arată o posibilă utilizare a polizaharidelor în obținerea materialelor biodegradabile.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LISTA CUMPĂRĂTURI -->
+  <section class="slide" data-theme="experiments" data-label="Cumpărături">
+    <span class="bignum"></span>
+    <div class="wrap">
+      <div class="eyebrow u">Pregătire</div>
+      <h2 class="u" style="--d:1">Lista completă de cumpărături</h2>
+      <div class="material-tags u" style="--d:2">
+        <span>căpșuni</span><span>amidon alimentar</span><span>Lugol sau iod</span><span>alcool sanitar/spirt</span><span>sare</span><span>detergent de vase</span><span>oțet</span><span>glicerină</span><span>filtre de cafea/tifon</span><span>pahare transparente</span><span>pungă ziplock</span><span>hârtie de copt</span><span>cartof</span><span>pâine</span><span>orez</span><span>făină</span><span>zahăr</span><span>măr</span>
+      </div>
+      <div class="note u" style="--d:3;margin-top:20px"><svg class="ic"><use href="#i-info"/></svg><div>Mai speciale sunt doar <b>Lugol/iod</b>, <b>glicerina</b> și eventual alcoolul cât mai concentrat.</div></div>
+    </div>
+  </section>
+
+  <!-- ORDINE ȘI LEGĂTURĂ -->
+  <section class="slide" data-theme="experiments" data-label="Ordine">
+    <span class="bignum"></span>
+    <div class="wrap">
+      <div class="eyebrow u">Cum le prezinți</div>
+      <h2 class="u" style="--d:1">Ordinea cea mai bună</h2>
+      <div class="grid2">
+        <div class="steps u" style="--d:2">
+          <div><b>Testul amidonului cu iod</b><br>Începi simplu: arăți ce este amidonul și cum îl identifici.</div>
+          <div><b>Bioplasticul din amidon</b><br>Continui cu aplicația practică: amidonul devine material biodegradabil.</div>
+          <div><b>ADN-ul din căpșuni</b><br>Îl lași la final, pentru că este cel mai spectaculos vizual.</div>
+        </div>
+        <div class="quotebox u" style="--d:3"><svg class="ic"><use href="#i-quote"/></svg><div><div class="q">Amidonul îl identificăm, apoi îl folosim. La final, extragem ADN pentru a observa o altă moleculă importantă din celulele vii.</div><cite>legătura dintre experimente</cite></div></div>
+      </div>
+    </div>
+  </section>
+
+
 </div></div>
 
 <div class="lightbox" id="lightbox">
@@ -526,11 +949,21 @@ let bn=0; document.querySelectorAll('.bignum').forEach(el=>{bn++;el.textContent=
 const dots=document.getElementById('dots');
 slides.forEach((s,i)=>{const b=document.createElement('button');b.innerHTML='<span>'+s.dataset.label+'</span>';b.onclick=()=>go(i);dots.appendChild(b);});
 const dotEls=[...dots.children];
+let themeTimer=null;
 
 function go(i){
   i=Math.max(0,Math.min(total-1,i));
   if(i===cur && slides[cur].classList.contains('active'))return;
+  const oldTheme=slides[cur]?.dataset.theme||'glycogen';
   cur=i;
+  const nextTheme=slides[cur].dataset.theme||'glycogen';
+  document.body.classList.toggle('theme-cellulose',nextTheme==='cellulose');
+  document.body.classList.toggle('theme-experiments',nextTheme==='experiments');
+  if(oldTheme!==nextTheme){
+    document.body.classList.add('theme-switching');
+    clearTimeout(themeTimer);
+    themeTimer=setTimeout(()=>document.body.classList.remove('theme-switching'),720);
+  }
   slidesEl.style.setProperty('--i',cur);
   slides.forEach((s,k)=>s.classList.toggle('active',k===cur));
   dotEls.forEach((d,k)=>d.classList.toggle('active',k===cur));
@@ -563,6 +996,192 @@ document.querySelectorAll('.plate img,.plate-light img').forEach(im=>{
 });
 lb.addEventListener('click',closeLB);
 
+// background motion: glycogen branches or cellulose microfibrils
+const ambient=document.getElementById('ambientBg');
+const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(ambient && !reduceMotion){
+  const ac=ambient.getContext('2d');
+  let aW=0,aH=0,ambientDpr=1,clusters=[],trails=[],lastT=0,themeBlend=document.body.classList.contains('theme-cellulose')?1:0;
+  const glycogenPalette=[
+    {r:57,g:217,b:138},
+    {r:255,g:183,b:77},
+    {r:90,g:169,b:255},
+    {r:255,g:107,b:107}
+  ];
+  const cellulosePalette=[
+    {r:212,g:228,b:162},
+    {r:200,g:170,b:112},
+    {r:167,g:210,b:189},
+    {r:169,g:200,b:207}
+  ];
+  const experimentsPalette=[
+    {r:188,g:231,b:227},
+    {r:239,g:211,b:154},
+    {r:233,g:173,b:199},
+    {r:174,g:191,b:240}
+  ];
+  function activePalette(){
+    if(document.body.classList.contains('theme-experiments'))return experimentsPalette;
+    return document.body.classList.contains('theme-cellulose')?cellulosePalette:glycogenPalette;
+  }
+  function rgba(c,a){return `rgba(${c.r},${c.g},${c.b},${a})`;}
+  function ambientResize(){
+    ambientDpr=Math.min(devicePixelRatio||1,2);
+    aW=ambient.width=Math.floor(innerWidth*ambientDpr);
+    aH=ambient.height=Math.floor(innerHeight*ambientDpr);
+    ambient.style.width=innerWidth+'px';
+    ambient.style.height=innerHeight+'px';
+    buildAmbient();
+  }
+  function buildAmbient(){
+    const wide=innerWidth>900;
+    const count=wide?13:7;
+    clusters=Array.from({length:count},(_,i)=>({
+      x:Math.random()*aW,
+      y:Math.random()*aH,
+      s:(wide?46:34)*ambientDpr*(.72+Math.random()*.72),
+      phase:Math.random()*Math.PI*2,
+      drift:(.018+Math.random()*.026)*ambientDpr,
+      spin:(Math.random()-.5)*.0016,
+      colorIndex:i%4,
+      branch:Math.random()>.5
+    }));
+    trails=Array.from({length:wide?7:4},(_,i)=>({
+      x:Math.random()*aW,
+      y:Math.random()*aH,
+      len:(180+Math.random()*260)*ambientDpr,
+      speed:(.16+Math.random()*.12)*ambientDpr,
+      colorIndex:(i+1)%4,
+      phase:Math.random()*Math.PI*2
+    }));
+  }
+  function drawHex(cx,cy,r,rot,color,alpha){
+    ac.beginPath();
+    for(let i=0;i<6;i++){
+      const a=rot+i*Math.PI/3;
+      const x=cx+Math.cos(a)*r;
+      const y=cy+Math.sin(a)*r;
+      if(i)ac.lineTo(x,y);else ac.moveTo(x,y);
+    }
+    ac.closePath();
+    ac.strokeStyle=rgba(color,alpha);
+    ac.lineWidth=1.15*ambientDpr;
+    ac.stroke();
+    for(let i=0;i<6;i+=2){
+      const a=rot+i*Math.PI/3;
+      ac.beginPath();
+      ac.arc(cx+Math.cos(a)*r,cy+Math.sin(a)*r,2.2*ambientDpr,0,Math.PI*2);
+      ac.fillStyle=rgba(color,alpha*1.65);
+      ac.fill();
+    }
+  }
+  function drawFiber(cx,cy,len,phase,color,alpha){
+    for(let k=0;k<4;k++){
+      const off=(k-1.5)*7*ambientDpr;
+      const sway=Math.sin(phase+k*.8)*18*ambientDpr;
+      ac.beginPath();
+      ac.moveTo(cx-len*.5,cy+off);
+      ac.bezierCurveTo(cx-len*.18,cy+off-sway,cx+len*.18,cy+off+sway,cx+len*.5,cy+off);
+      ac.strokeStyle=rgba(color,alpha*(.78+k*.08));
+      ac.lineWidth=(2.1-k*.18)*ambientDpr;
+      ac.stroke();
+    }
+    for(let j=-2;j<=2;j++){
+      const x=cx+j*len*.18;
+      ac.beginPath();
+      ac.arc(x,cy+Math.sin(phase+j)*12*ambientDpr,2.5*ambientDpr,0,Math.PI*2);
+      ac.fillStyle=rgba(color,alpha*1.6);
+      ac.fill();
+    }
+  }
+  function ambientFrame(t){
+    const dt=Math.min(34,t-lastT||16);
+    lastT=t;
+    ac.clearRect(0,0,aW,aH);
+    ac.save();
+    ac.globalCompositeOperation='lighter';
+
+    const targetBlend=document.body.classList.contains('theme-cellulose')?1:0;
+    themeBlend+=(targetBlend-themeBlend)*Math.min(1,dt/720);
+    const motionAlpha=.38+.62*Math.abs(themeBlend-.5)*2;
+    const cellulose=themeBlend>.5;
+    const palette=activePalette();
+    const slideGlow=.35+.14*Math.sin(t*.001+cur*.75);
+    const glow=cellulose?palette[0]:glycogenPalette[0];
+    const cool=cellulose?palette[3]:glycogenPalette[2];
+    const g=ac.createRadialGradient(cellulose?aW*.72:aW*.18,cellulose?aH*.18:aH*.22,0,cellulose?aW*.72:aW*.18,cellulose?aH*.18:aH*.22,aW*.62);
+    g.addColorStop(0,rgba(glow,(.022+slideGlow*.018)*motionAlpha));
+    g.addColorStop(.45,rgba(cool,.012*motionAlpha));
+    g.addColorStop(1,rgba(glow,0));
+    ac.fillStyle=g;
+    ac.fillRect(0,0,aW,aH);
+
+    trails.forEach((p,idx)=>{
+      p.x+=p.speed*dt*(cellulose ? .034 : .045);
+      p.y+=Math.sin(t*.0006+p.phase)*.15*ambientDpr;
+      if(p.x-p.len>aW){p.x=-p.len*.35;p.y=Math.random()*aH;}
+      const y=p.y+Math.sin((p.x*.003)+(t*.0008)+idx)*28*ambientDpr;
+      const grad=ac.createLinearGradient(p.x-p.len,y,p.x,y);
+      const c=palette[p.colorIndex];
+      grad.addColorStop(0,rgba(c,0));
+      grad.addColorStop(.72,rgba(c,(cellulose ? .045 : .07)*motionAlpha));
+      grad.addColorStop(1,rgba(c,(cellulose ? .17 : .22)*motionAlpha));
+      ac.strokeStyle=grad;
+      ac.lineWidth=(cellulose?1.8:1.1+idx%3)*ambientDpr;
+      ac.beginPath();
+      ac.moveTo(p.x-p.len,y);
+      ac.bezierCurveTo(p.x-p.len*.7,y-28*ambientDpr,p.x-p.len*.3,y+32*ambientDpr,p.x,y);
+      ac.stroke();
+    });
+
+    clusters.forEach((m,i)=>{
+      m.phase+=m.spin*dt;
+      m.x+=Math.cos(m.phase*.7+i)*m.drift*dt*.035;
+      m.y+=Math.sin(m.phase+i*.4)*m.drift*dt*.035;
+      if(m.x<-m.s*3)m.x=aW+m.s*2;if(m.x>aW+m.s*3)m.x=-m.s*2;
+      if(m.y<-m.s*3)m.y=aH+m.s*2;if(m.y>aH+m.s*3)m.y=-m.s*2;
+      const breathe=1+Math.sin(t*.0012+m.phase)*.055;
+      const x=m.x,y=m.y,r=m.s*breathe;
+      const alpha=(.09+(i%4)*.012)*motionAlpha;
+      const c=palette[m.colorIndex];
+      if(cellulose){
+        ac.save();
+        ac.translate(x,y);
+        ac.rotate(Math.sin(m.phase)*.18);
+        drawFiber(0,0,r*1.75,m.phase,c,alpha*.78);
+        if(m.branch)drawFiber(r*.22,-r*.34,r*1.2,m.phase+.8,palette[(i+1)%palette.length],alpha*.5);
+        ac.restore();
+      }else{
+        drawHex(x,y,r*.34,m.phase,c,alpha);
+        drawHex(x+r*.58,y+r*.1,r*.28,m.phase+.18,c,alpha*.86);
+        drawHex(x-r*.5,y+r*.18,r*.25,m.phase-.12,c,alpha*.72);
+        if(m.branch){
+          drawHex(x+r*.22,y-r*.58,r*.22,m.phase+.42,palette[(i+1)%palette.length],alpha*.72);
+        }
+        ac.strokeStyle=rgba(c,alpha*.78);
+        ac.lineWidth=1*ambientDpr;
+        ac.beginPath();
+        ac.moveTo(x+r*.2,y+r*.04);
+        ac.lineTo(x+r*.42,y+r*.08);
+        ac.moveTo(x-r*.2,y+r*.05);
+        ac.lineTo(x-r*.36,y+r*.13);
+        if(m.branch){ac.moveTo(x+r*.08,y-r*.24);ac.lineTo(x+r*.17,y-r*.43);}
+        ac.stroke();
+      }
+      const pulse=(Math.sin(t*.002+i)+1)/2;
+      ac.beginPath();
+      ac.arc(x+r*(.2+pulse*.34),y+r*(cellulose?-.08:.04+pulse*.06),3.4*ambientDpr,0,Math.PI*2);
+      ac.fillStyle=rgba(palette[(i+1)%palette.length],(.12+pulse*.18)*motionAlpha);
+      ac.fill();
+    });
+    ac.restore();
+    requestAnimationFrame(ambientFrame);
+  }
+  addEventListener('resize',ambientResize);
+  ambientResize();
+  requestAnimationFrame(ambientFrame);
+}
+
 // hero canvas
 const cv=document.getElementById('mol'),cx=cv.getContext('2d');
 let W,H,nodes=[],links=[],pulses=[];
@@ -587,3 +1206,4 @@ addEventListener('resize',rs);rs();draw();
 </script>
 </body>
 </html>
+
